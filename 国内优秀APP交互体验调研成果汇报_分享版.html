@@ -33,7 +33,7 @@
     /* TOP100 browser: fixed card geometry keeps hover details inside their own card. */
     .app-evaluation-toolbar{margin:-12px 0 14px}.app-evaluation-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.app-type-tabs{display:flex;gap:7px;flex-wrap:wrap}.app-type-tab,.app-page-button{appearance:none;border:1px solid var(--line);background:rgba(11,28,46,.54);color:#b9ccd8;font:600 12px/1 system-ui;cursor:pointer;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease,transform 150ms var(--ease-out)}.app-type-tab{padding:8px 10px}.app-type-tab small{margin-left:5px;color:#7f9daf;font-size:10px}.app-type-tab:hover,.app-type-tab[aria-selected="true"]{color:#edf8ff;border-color:rgba(121,201,255,.72);background:rgba(35,86,124,.4)}.app-type-tab[aria-selected="true"] small{color:#bfe6ff}.app-type-tab:active,.app-page-button:active{transform:scale(.97)}.app-pagination{display:flex;align-items:center;gap:8px;flex-shrink:0}.app-page-button{width:31px;height:31px;color:#d8e8f2;font-size:17px}.app-page-button:disabled{opacity:.35;cursor:not-allowed}.app-page-indicator{min-width:94px;text-align:center;color:#9db5c5;font-size:12px;font-variant-numeric:tabular-nums}.app-evaluation-grid{min-height:410px;align-content:start}.app-card{min-height:178px;grid-template-columns:68px minmax(0,1fr);gap:13px;padding:13px;border-color:rgba(195,222,243,.2);overflow:hidden}.app-screen{width:68px;height:112px;flex-shrink:0}.app-copy{position:relative;min-width:0}.app-card h3{margin:5px 0 7px;font-size:16px;line-height:1.25}.app-detail-stage{position:relative;height:82px;overflow:hidden}.app-highlight,.app-meta{position:absolute;inset:0;margin:0;transition:opacity 160ms var(--ease-out),transform 160ms var(--ease-out)}.app-highlight{display:-webkit-box!important}.app-meta{display:block;z-index:0;padding:0;background:transparent;opacity:0;pointer-events:none;transform:translateY(5px);overflow:hidden}.app-meta p{display:block;margin:0 0 3px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px;line-height:1.35}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:0;transform:translateY(-5px)}.app-card:hover .app-meta,.app-card:focus-within .app-meta{opacity:1;transform:translateY(0)}.app-card:hover .app-screen,.app-card:focus-within .app-screen{position:static;z-index:auto}.app-card[hidden]{display:none}.app-empty{grid-column:1/-1;min-height:190px;display:grid;place-items:center;text-align:center;border:1px dashed var(--line2);color:#9db4c3;font-size:14px}
     .app-evaluation-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-height:510px}.app-card{min-height:184px;grid-template-columns:minmax(0,1fr) 76px;gap:16px;padding:16px;overflow:visible}.app-card.has-icon{grid-template-columns:42px minmax(0,1fr) 76px}.app-screen{grid-column:2;width:76px;height:124px;margin-top:28px;position:relative}.app-card.has-icon .app-icon{grid-column:1}.app-card.has-icon .app-copy{grid-column:2}.app-card.has-icon .app-screen{grid-column:3}.app-screen.has-image{position:relative;overflow:hidden;border-style:solid}.app-screen.has-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.app-screen.has-image span{position:relative;z-index:1;padding:5px;background:linear-gradient(0deg,rgba(3,10,18,.94),rgba(3,10,18,.22));border-top:0;text-shadow:0 1px 2px rgba(0,0,0,.8)}.app-card h3{font-size:18px;margin-bottom:8px}.app-copy{grid-column:1;padding-top:0;padding-right:46px}.app-detail-stage{height:62px}.app-details{position:absolute;z-index:5;top:13px;right:13px;left:auto}.app-details-button{height:24px;padding:0 8px;border:1px solid rgba(121,201,255,.45);background:rgba(6,20,34,.9);color:#bfe5fd;font:600 11px/1 system-ui;cursor:pointer;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease,transform 150ms var(--ease-out)}.app-details-button:hover,.app-details-button:focus-visible,.app-details.is-open .app-details-button{border-color:var(--blue);background:rgba(27,72,106,.88);color:#eff9ff;outline:0}.app-details-button:active{transform:scale(.96)}.app-details-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;bottom:auto!important;left:auto;width:min(360px,calc(100vw - 72px));height:auto!important;max-height:none!important;padding:11px 12px!important;border:1px solid rgba(121,201,255,.55);background:rgba(4,14,25,.98)!important;box-shadow:0 12px 28px rgba(0,0,0,.3);overflow:visible!important;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(5px);transition:opacity 150ms var(--ease-out),transform 150ms var(--ease-out),visibility 150ms var(--ease-out)}.app-details-popover p{display:block!important;margin:0 0 5px!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;font-size:11px!important;line-height:1.45!important}.app-details-popover p:last-child{margin-bottom:0!important}.app-card:has(.app-details:hover),.app-card:has(.app-details.is-open),.app-card:focus-within{z-index:10}.app-card:hover .app-details-popover,.app-card:focus-within .app-details-popover{opacity:0;visibility:hidden;transform:translateY(5px)}.app-card:hover .app-screen,.app-card:focus-within .app-screen{position:relative;z-index:auto}.app-details:hover .app-details-popover,.app-details:focus-within .app-details-popover,.app-details.is-open .app-details-popover{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:1;transform:none}.app-meta p{margin-bottom:4px;font-size:11px}
-    .app-card.has-icon{grid-template-columns:42px minmax(0,1fr) 76px}.app-icon{width:42px;height:42px;margin-top:0;object-fit:cover;border-radius:10px;border:1px solid rgba(195,222,243,.25);background:#07101b}.app-detail-stage{height:68px}.app-highlight-label{display:block;margin-bottom:4px;color:#78caff;font:700 10px/1 system-ui;letter-spacing:.05em}.app-highlight{position:static!important;display:-webkit-box!important;margin:0!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical;overflow:hidden;font-size:13px!important;line-height:1.52!important}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:1!important;transform:none!important}
+    .app-card.has-icon{grid-template-columns:42px minmax(0,1fr) 76px}.app-icon{width:42px;height:42px;margin-top:0;object-fit:cover;border-radius:10px;border:1px solid rgba(195,222,243,.25);background:#07101b}.app-detail-stage{height:68px}.app-highlight{position:static!important;display:-webkit-box!important;margin:0!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical;overflow:hidden;font-size:13px!important;line-height:1.52!important}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:1!important;transform:none!important}
     @media(max-width:900px){.app-evaluation-controls{align-items:flex-start;flex-direction:column}.app-pagination{align-self:flex-end}.app-evaluation-grid{min-height:0}}@media(max-width:560px){.app-evaluation-grid{grid-template-columns:1fr}.app-screen{height:112px}}
     @media(max-width:560px){.app-type-tabs{flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:5px}.app-type-tab{white-space:nowrap}.app-evaluation-controls{gap:11px}.app-pagination{align-self:stretch;justify-content:flex-end}.app-detail-stage{height:76px}}
     /* Compact TOP100 cards: content stays in one top-aligned row instead of stretching to the grid's reserved height. */
@@ -170,9 +170,9 @@
   #cases .video-case .case-gallery-thumbnails button:focus-visible{outline:2px solid #82c5e8;outline-offset:3px}
   #cases .video-case .case-gallery-thumbnails img{display:block;width:100%;height:100%;object-fit:cover}
   @media(max-width:760px){#cases .video-case .case-gallery-thumbnails{grid-auto-flow:column;grid-auto-columns:minmax(90px,1fr);grid-template-columns:none;overflow-x:auto;padding-bottom:4px}.case.video-case .case-source{min-height:0;padding-right:76px}.case.video-case .case-app-icon{width:58px;height:58px;border-radius:14px}}
-  #top100 .app-interaction-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-  #top100 .app-interaction-tags span{padding:4px 7px;border:1px solid rgba(121,201,255,.28);background:rgba(121,201,255,.065);color:#bfe6fb;font:600 10px/1.2 system-ui;white-space:nowrap}
-  @media(max-width:560px){#top100 .app-interaction-tags{margin-top:10px}#top100 .app-interaction-tags span{padding:4px 6px;font-size:10px}}
+  #top100 .app-interaction-tags{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 11px}
+  #top100 .app-interaction-tags span{padding:6px 9px;border:1px solid rgba(121,201,255,.42);background:rgba(121,201,255,.09);color:#d8f0ff;font:700 14px/1.2 system-ui;letter-spacing:.01em;white-space:nowrap}
+  @media(max-width:560px){#top100 .app-interaction-tags{gap:6px;margin-bottom:10px}#top100 .app-interaction-tags span{padding:5px 8px;font-size:13px}}
 </style>
 </head>
 <body>
@@ -190,7 +190,7 @@
       <article class="case primary"><div class="case-copy"><div class="case-source">主案例 B · 企业经营工具</div><span class="tag">有赞 / 微盟 / CRM / 低代码｜移动工作台</span><h3>复杂业务到了手机上，<br>员工先该完成哪一件事？</h3><p>这是第二组直接对标：客户、流程、数据和审批如何按角色与当下优先级重排，而不是把后台原样缩小到手机。</p><dl><dt>体验任务</dt><dd>查看客户，并完成一次跟进、审批或经营动作。</dd><dt>完成条件</dt><dd>截图：工作台或关键流程页 1 张；录屏：从优先任务到动作完成。</dd><dt>待验证方向</dt><dd class="conclusion">移动工作台的价值，不是装下更多功能，而是让员工先看到最该完成的一步。</dd></dl></div><div class="case-media case-placeholder"><i>⌁</i><b>待补充真实截图</b><small>截图：工作台关键页 1 张<br>录屏：从优先任务到动作完成</small></div></article>
     </div></section>
     <section class="section" id="evidence"><div class="head"><div><div class="index">案例证据</div><h2>看完方法，<br>马上回到可验证的证据。</h2></div><p class="lead">每组案例只需一段 30–90 秒录屏和一张标注截图。录屏讲清任务、关键动作、系统反馈与结果；截图只回答一个交互问题。</p></div><div class="shot"><article class="placeholder"><div><i>▶</i><h3>录屏 · 待你补充</h3><p>完成条件：从入口录到结果反馈；停在最关键的一步，说明用户为什么不用猜下一步。</p></div><code>产品名_任务名_亮点.mp4</code></article><article class="placeholder"><div><i>↗</i><h3>截图 · 待你补充</h3><p>完成条件：只截 1 张关键页，只标 1 个重点——入口、状态、风险解释、成功反馈或下一步。</p></div><code>产品名_关键页面.png</code></article></div></section>
-    <section class="section" id="top100"><div class="head"><div><div class="index">TOP100 样本数据库</div><h2>重点案例看方法，<br>100 个样本看覆盖。</h2></div><p class="lead">案例说明“学什么”，这里说明“从哪些样本中归纳”。按业务类型切换浏览，每页固定 10 个 App，可查看名称、交互亮点、截图位及评价口径。</p></div><div class="app-evaluation-toolbar"><p><b>100 个 App 综合评价</b>｜数据来自《国内交互设计优秀 APP 研究报告 TOP100》；截图为后续实测补充项。</p><a href="/Users/napnap/WorkBuddy/2026-07-27-10-24-34/国内交互设计优秀APP研究报告_TOP100.docx">打开原始评价表</a></div><div class="app-evaluation-controls"><div class="app-type-tabs" id="app-type-tabs" role="tablist" aria-label="APP 类型筛选"></div><div class="app-pagination"><button class="app-page-button" type="button" id="app-page-prev" aria-label="上一页">‹</button><span class="app-page-indicator" id="app-page-indicator">第 1 / 1 页</span><button class="app-page-button" type="button" id="app-page-next" aria-label="下一页">›</button></div></div><div class="app-evaluation-grid" id="app-evaluation-grid" aria-live="polite"></div></section>
+    <section class="section" id="top100"><div class="head"><div><div class="index">TOP100 样本数据库</div><h2>重点案例看方法，<br>100 个样本看覆盖。</h2></div><p class="lead">案例说明“学什么”，这里说明“从哪些样本中归纳”。按业务类型切换浏览，每页固定 10 个 App，可查看名称、交互亮点、截图位及评价口径。</p></div><div class="app-evaluation-toolbar"><p><b>100 个 App 综合评价</b>｜数据来自《国内交互设计优秀 APP 研究报告 TOP100》；截图为后续实测补充项。</p></div><div class="app-evaluation-controls"><div class="app-type-tabs" id="app-type-tabs" role="tablist" aria-label="APP 类型筛选"></div><div class="app-pagination"><button class="app-page-button" type="button" id="app-page-prev" aria-label="上一页">‹</button><span class="app-page-indicator" id="app-page-indicator">第 1 / 1 页</span><button class="app-page-button" type="button" id="app-page-next" aria-label="下一页">›</button></div></div><div class="app-evaluation-grid" id="app-evaluation-grid" aria-live="polite"></div></section>
     <section class="section" id="findings"><div class="head"><div><div class="index">待确认方向</div><h2>先有假设，<br>再由真实体验做取舍。</h2></div><p class="lead">以下是 100 个样本按类型与任务归纳出的方向，不是已证实的产品结论。每一条至少要有两段可回放证据，才进入正式结论。</p></div><div class="insight"><div class="h">方向</div><div class="h">优先验证的问题</div><div class="h">建议补充的样本证据</div><div>任务入口</div><div>员工端入口是否围绕“此刻正在处理的任务”，而不是平铺全部模块。</div><div>飞书、钉钉、企业微信、有赞、纷享销客：各录一次从入口到完成动作的路径。</div><div>状态反馈</div><div>等待、变化、失败与高风险确认时，系统是否主动说明状态与用户选择。</div><div>高德、滴滴、航旅纵横、支付宝、招商银行：各录一次状态变化或确认前后。</div><div>服务决策</div><div>内容、评价、咨询和预约能否处在同一条决策路径，减少用户重新寻找入口。</div><div>小红书、大众点评、美团、贝壳、自如：各录一次从信息浏览到服务行动。</div><div>长期关系</div><div>服务完成后是否用进展、反馈与下一步延续关系，而非只给一次性的“成功”。</div><div>Keep、薄荷健康、京东健康、机构经营工具：各录一次完成后的反馈与复访引导。</div></div></section>
     <section class="section"><div class="head"><div><div class="index">会上要确认</div><h2>先确认研究重点，<br>不急着讨论改造方案。</h2></div><p class="lead">100 个样本解决“看什么”；真实截图和录屏解决“凭什么这么判断”。证据补齐后，再进入自家产品的专题讨论。</p></div><div class="closing"><div><h3>建议在会上确认三件事。</h3><p>第一，两组直接对标员工端的主案例是否成立；第二，四组跨行业验证方向是否足够；第三，哪些方向在证据补齐后值得带回机构员工端讨论。具体改造范围，留到体验证据确认后决定。</p></div><div class="checklist"><div class="check"><i>主案例</i>确认两组直接对标样本与负责人</div><div class="check"><i>补证据</i>确认每组的录屏任务与截图位置</div><div class="check"><i>再讨论</i>证据补齐后再确定产品重点</div></div></div></section>
   </main>
@@ -299,6 +299,7 @@
           thumbnail.src = app.image;
           thumbnail.alt = app.name + ' ' + (app.imageSource || '参考') + '截图';
           thumbnail.loading = 'lazy';
+          thumbnail.decoding = 'async';
           screen.append(thumbnail);
           screen.classList.add('has-image');
         }
@@ -312,6 +313,7 @@
           icon.src = app.icon;
           icon.alt = app.name + ' App 图标';
           icon.loading = 'lazy';
+          icon.decoding = 'async';
           card.classList.add('has-icon');
         }
         const copy = document.createElement('div');
@@ -320,12 +322,9 @@
         const highlight = document.createElement('p');
         highlight.className = 'app-highlight';
         highlight.textContent = app.highlight;
-        const highlightLabel = document.createElement('span');
-        highlightLabel.className = 'app-highlight-label';
-        highlightLabel.textContent = '交互设计亮点';
         const stage = document.createElement('div');
         stage.className = 'app-detail-stage';
-        stage.append(highlightLabel, highlight);
+        stage.append(highlight);
         const tags = document.createElement('div');
         tags.className = 'app-interaction-tags';
         interactionTags(app).forEach((tag) => {
@@ -333,7 +332,7 @@
           item.textContent = tag;
           tags.append(item);
         });
-        copy.append(name, stage, tags);
+        copy.append(name, tags, stage);
         const details = document.createElement('div');
         details.className = 'app-details';
         const detailsButton = document.createElement('button');
@@ -627,9 +626,9 @@
         {name:'得到', folder:'得到', icon:'得到.png', source:'知识工具极简流程 &amp; 精准适配逻辑｜标杆案例：得到', tag:'知识学习｜单 App 录屏演示', title:'找课、开听，<br>把学习接着做下去。', logic:['三步学习','功能收纳','信息降噪','场景适配'], action:'找课程、试听订阅、查看学习记录，核心动作连成一条短路径。', result:'课程、时长与进度优先呈现，通勤、休息等碎片场景也能顺手继续。', takeaway:'把学习服务做成随时可以继续的一件事。'},
         {name:'美颜相机', folder:'美颜相机', icon:'美颜相机.jpg', source:'影像视觉美学 &amp; 精细化交互逻辑｜标杆案例：美颜相机', tag:'影像创作｜单 App 录屏演示', title:'每次调整，<br>画面马上告诉你结果。', logic:['视觉统一','功能分层','实时反馈','可逆容错'], action:'拍摄、美颜、滤镜等高频功能前置，复杂工具按层收纳。', result:'滑动调参即时预览，参数可重置、成片可对比，减少创作试错。', takeaway:'让每一次调整都可见、可退、可重来。'},
         {name:'讯飞听见', folder:'讯飞听见', icon:'讯飞听见.png', source:'音频转写高效 &amp; 智能容错逻辑｜标杆案例：讯飞听见', tag:'语音办公｜单 App 录屏演示', title:'录下来，<br>整理成可用的文字。', logic:['短路径闭环','智能纠错','异常兜底','操作可逆'], action:'录音、转写、保存直达结果，口语、断句与同音错误自动规整。', result:'中断和网络异常会说明原因并缓存内容，文本可编辑、可回退、可检索。', takeaway:'智能能力要减少后续整理，而不是增加新的操作。'},
-        {name:'红果免费短剧', folder:'红果免费短剧', icon:'红果免费短剧.jpg', source:'短剧轻量化 &amp; 沉浸式体验逻辑｜标杆案例：红果免费短剧', tag:'短剧内容｜单 App 录屏演示', title:'连续看下去，<br>不被多余动作打断。', logic:['轻量运行','营销后置','播放直达','界面降噪'], action:'上下滑动切剧、点击播放暂停，核心观看动作无需学习。', result:'广告可快速关闭，弱网与缓存场景也尽量维持连续播放。', takeaway:'沉浸体验先于曝光和转化。'},
-        {name:'Keep', folder:'Keep', icon:'Keep.png', source:'运动健康场景 &amp; 全人群适配逻辑｜标杆案例：Keep', tag:'运动健康｜单 App 录屏演示', title:'不同的人，<br>都能找到合适的开始。', logic:['人群分层','全场景适配','记录可逆','数据前置'], action:'新手到进阶用户各有课程与计划，居家、跑步、力量等场景被分别照顾。', result:'时长、卡路里、心率等关键数据在运动时优先可见，记录可恢复。', takeaway:'先适配真实运动场景，再谈训练深度。'},
-        {name:'抖音', folder:'抖音', icon:'抖音.jpg', source:'短视频沉浸式 &amp; 精细化运营体验逻辑｜标杆案例：抖音', tag:'短视频内容｜单 App 录屏演示', title:'内容更沉浸，<br>推荐也更贴近兴趣。', logic:['沉浸信息流','用户分层','轻量交互','场景适配'], action:'全屏信息流与上下滑动符合直觉，点赞、评论、收藏等动作随手可达。', result:'推荐随互动持续调整，弱网、深色、青少年等模式覆盖不同人群与情境。', takeaway:'把内容、推荐与使用场景持续对齐。'}
+        {name:'红果免费短剧', video:'红果免费短剧_web.mp4', folder:'红果免费短剧', icon:'红果免费短剧.jpg', source:'短剧轻量化 &amp; 沉浸式体验逻辑｜标杆案例：红果免费短剧', tag:'短剧内容｜单 App 录屏演示', title:'连续看下去，<br>不被多余动作打断。', logic:['轻量运行','营销后置','播放直达','界面降噪'], action:'上下滑动切剧、点击播放暂停，核心观看动作无需学习。', result:'广告可快速关闭，弱网与缓存场景也尽量维持连续播放。', takeaway:'沉浸体验先于曝光和转化。'},
+        {name:'Keep', video:'Keep_web.mp4', folder:'Keep', icon:'Keep.png', source:'运动健康场景 &amp; 全人群适配逻辑｜标杆案例：Keep', tag:'运动健康｜单 App 录屏演示', title:'不同的人，<br>都能找到合适的开始。', logic:['人群分层','全场景适配','记录可逆','数据前置'], action:'新手到进阶用户各有课程与计划，居家、跑步、力量等场景被分别照顾。', result:'时长、卡路里、心率等关键数据在运动时优先可见，记录可恢复。', takeaway:'先适配真实运动场景，再谈训练深度。'},
+        {name:'抖音', video:'抖音_web.mp4', folder:'抖音', icon:'抖音.jpg', source:'短视频沉浸式 &amp; 精细化运营体验逻辑｜标杆案例：抖音', tag:'短视频内容｜单 App 录屏演示', title:'内容更沉浸，<br>推荐也更贴近兴趣。', logic:['沉浸信息流','用户分层','轻量交互','场景适配'], action:'全屏信息流与上下滑动符合直觉，点赞、评论、收藏等动作随手可达。', result:'推荐随互动持续调整，弱网、深色、青少年等模式覆盖不同人群与情境。', takeaway:'把内容、推荐与使用场景持续对齐。'}
       ];
       const caseGrid = one('#cases .case-grid');
       const videoTemplate = one('#cases .case.video-case');
@@ -638,21 +637,20 @@
         const card = videoTemplate.cloneNode(true);
         const icon = item.icon ? `<img class="case-app-icon" src="assets/case-icons/${encodeURIComponent(item.icon)}" alt="${item.name}图标">` : `<span class="case-app-mark ${item.markClass}" aria-label="${item.name}">${item.mark}</span>`;
         card.querySelector('.case-copy').innerHTML = `<div class="case-source">${icon}<span>${item.source}</span></div><span class="tag">${item.tag}</span><h3>${item.title}</h3><div class="case-logic"><b>匹配核心逻辑</b><div class="case-logic-tags">${item.logic.map((entry) => `<span class="case-logic-tag">${entry}</span>`).join('')}</div></div><div class="case-insights"><p><b>关键动作</b><span>${item.action}</span></p><p><b>体验结果</b><span>${item.result}</span></p></div><div class="case-takeaway"><b>值得借鉴</b><span>${item.takeaway}</span></div>`;
-        card.querySelector('.case-video').outerHTML = `<figure class="case-video"><div class="phone-frame"><video controls muted playsinline preload="metadata" aria-label="${item.name}录屏"><source src="assets/case-videos/${encodeURIComponent(item.name)}.mp4" type="video/mp4">当前浏览器无法播放该视频。</video></div><figcaption><b>${item.name} · 操作录屏</b><span>从入口到完成关键操作</span></figcaption></figure>`;
+        card.querySelector('.case-video').outerHTML = `<figure class="case-video"><div class="phone-frame"><video controls muted playsinline preload="metadata" aria-label="${item.name}录屏"><source src="assets/case-videos/${encodeURIComponent(item.video || item.name + '.mp4')}" type="video/mp4">当前浏览器无法播放该视频。</video></div><figcaption><b>${item.name} · 操作录屏</b><span>从入口到完成关键操作</span></figcaption></figure>`;
         caseGrid.append(card);
       });
       const caseTypes = ['交互流程优化', '视觉界面优化', '轻量化体验优化', '隐私与细节优化', '内容信息流与用户分层', '电商流程与容错体验', '知识工具与场景适配', '影像美学与精细交互', '音频转写与智能容错', '短剧轻量化与沉浸体验', '运动健康与全人群适配', '短视频沉浸与精细化运营'];
       const caseNavStyle = document.createElement('style');
       caseNavStyle.textContent = `
-        #cases .case-type-nav{position:sticky;top:76px;z-index:4;display:flex;align-items:center;gap:12px;margin:0 0 28px;padding:12px 14px;border:1px solid rgba(142,207,239,.26);background:rgba(4,14,25,.9);box-shadow:0 14px 28px rgba(0,0,0,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-        #cases .case-type-nav-label{flex:none;color:#82c9ef;font:750 12px/1 system-ui;letter-spacing:.04em;white-space:nowrap}
-        #cases .case-type-nav-list{display:flex;gap:7px;min-width:0;overflow-x:auto;scrollbar-width:thin;scrollbar-color:rgba(121,201,255,.48) transparent;scroll-snap-type:x proximity}
-        #cases .case-type-nav-list::-webkit-scrollbar{height:4px}#cases .case-type-nav-list::-webkit-scrollbar-thumb{background:rgba(121,201,255,.42);border-radius:99px}
-        #cases .case-type-nav a{flex:none;scroll-snap-align:start;padding:8px 10px;border:1px solid rgba(159,206,235,.18);border-radius:999px;color:#b6cbd9;background:rgba(16,38,56,.46);font:650 13px/1.25 system-ui;text-decoration:none;white-space:nowrap;transition:color 160ms ease,border-color 160ms ease,background-color 160ms ease,transform 160ms ease}
+        #cases .case-type-nav{position:sticky;top:76px;z-index:4;margin:0 0 28px;padding:14px;border:1px solid rgba(142,207,239,.26);background:rgba(4,14,25,.9);box-shadow:0 14px 28px rgba(0,0,0,.18);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+        #cases .case-type-nav-label{display:block;margin:0 0 10px;color:#82c9ef;font:750 12px/1 system-ui;letter-spacing:.04em}
+        #cases .case-type-nav-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}
+        #cases .case-type-nav a{display:grid;place-items:center;min-height:42px;padding:8px 10px;border:1px solid rgba(159,206,235,.18);border-radius:0;color:#b6cbd9;background:rgba(16,38,56,.46);font:650 13px/1.3 system-ui;text-align:center;text-decoration:none;white-space:normal;transition:color 160ms ease,border-color 160ms ease,background-color 160ms ease,transform 160ms ease}
         #cases .case-type-nav a:hover,#cases .case-type-nav a:focus-visible{color:#eff9ff;border-color:rgba(121,201,255,.66);background:rgba(35,85,117,.66);outline:0}#cases .case-type-nav a:active{transform:translateY(1px)}
         #cases .case-type-nav a.is-active{color:#eaf8ff;border-color:#79c9ff;background:rgba(42,107,145,.7);box-shadow:inset 0 1px 0 rgba(220,245,255,.14)}
         #cases .case.video-case{scroll-margin-top:148px}
-        @media(max-width:760px){#cases .case-type-nav{top:64px;margin-bottom:20px;padding:10px 12px;gap:10px}#cases .case-type-nav-label{font-size:11px}#cases .case-type-nav a{padding:7px 9px;font-size:12px}#cases .case.video-case{scroll-margin-top:132px}}
+        @media(max-width:1050px){#cases .case-type-nav-list{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:760px){#cases .case-type-nav{top:64px;margin-bottom:20px;padding:12px}#cases .case-type-nav-label{font-size:11px}#cases .case-type-nav-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}#cases .case-type-nav a{min-height:40px;padding:7px 8px;font-size:12px}#cases .case.video-case{scroll-margin-top:132px}}
         @media(prefers-reduced-motion:reduce){#cases .case-type-nav a{transition:none}}
       `;
       document.head.append(caseNavStyle);
@@ -738,7 +736,7 @@
           const thumbnail = document.createElement('button');
           thumbnail.type = 'button';
           thumbnail.setAttribute('aria-label', `查看 ${gallery.name} 截图 ${imageIndex + 1}`);
-          thumbnail.innerHTML = `<img src="${source}" alt="${gallery.name} 截图 ${imageIndex + 1}">`;
+          thumbnail.innerHTML = `<img src="${source}" alt="${gallery.name} 截图 ${imageIndex + 1}" loading="lazy" decoding="async">`;
           thumbnail.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -770,7 +768,6 @@
 
       sectionHead('#top100', '100 个参考样本', '重点案例看做法，<br>100 个样本说明我们看得够不够广。', '这不是排名，而是一份完整参考清单。按类型切换，每页 10 个；先了解它为什么值得看，再用实际操作判断。');
       html('#top100 .app-evaluation-toolbar p', '<b>100 个 App 的参考说明</b>｜资料来自《国内交互设计优秀 APP 研究报告 TOP100》；最终判断以实际操作为准。');
-      all('.app-highlight-label').forEach((el) => el.remove());
       all('.app-screen.has-image span').forEach((el) => el.remove());
 
       sectionHead('#findings', '今天请确认什么', '先定研究重点，<br>下次只看有结论的材料。', '今天不讨论具体页面怎么改。请先确认研究先服务哪类业务、用什么标准判断，以及下一次会议要带回什么。');
