@@ -642,6 +642,9 @@
       let galleryScrollTop = 0;
       const renderGalleryImage = () => {
         const gallery = caseGalleries[activeGallery];
+        // This image sits inside a hidden dialog until opened, so it must bypass lazy loading.
+        galleryImage.loading = 'eager';
+        galleryImage.decoding = 'sync';
         galleryImage.src = gallery.images[activeImage].full;
         galleryImage.alt = `${gallery.name}截图 ${activeImage + 1}`;
         galleryTitle.textContent = gallery.name;
