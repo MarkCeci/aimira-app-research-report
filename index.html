@@ -664,7 +664,7 @@
           const thumbnail = document.createElement('button');
           thumbnail.type = 'button';
           thumbnail.setAttribute('aria-label', `查看 ${gallery.name} 截图 ${imageIndex + 1}`);
-          thumbnail.innerHTML = `<img src="${source}" alt="${gallery.name} 截图 ${imageIndex + 1}">`;
+          thumbnail.innerHTML = `<img src="${source}" alt="${gallery.name} 截图 ${imageIndex + 1}" loading="lazy" decoding="async">`;
           thumbnail.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -719,6 +719,13 @@
     document.querySelector('.app-evaluation-toolbar a')?.setAttribute('href', '资料/国内交互设计优秀APP研究报告_TOP100.docx');
   </script>
 <script>
+  // Keep the report responsive: only fetch media when it reaches the viewport or the user requests it.
+  document.querySelectorAll('img').forEach((image) => {
+    image.loading = image.closest('.hero') ? 'eager' : 'lazy';
+    image.decoding = 'async';
+  });
+  document.querySelectorAll('.case-video video').forEach((video) => { video.preload = 'none'; });
+
   // GitHub Pages only serves the web-friendly MP4 exports; reload each player with that source.
   window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('video source').forEach((source) => {
