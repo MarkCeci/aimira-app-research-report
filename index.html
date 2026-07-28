@@ -718,5 +718,17 @@
     document.querySelector('.source-link')?.setAttribute('href', '资料/国内优秀交互APP_100个_判定口碑与来源.xlsx');
     document.querySelector('.app-evaluation-toolbar a')?.setAttribute('href', '资料/国内交互设计优秀APP研究报告_TOP100.docx');
   </script>
+<script>
+  // GitHub Pages only serves the web-friendly MP4 exports; reload each player with that source.
+  window.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('video source').forEach((source) => {
+      if (source.getAttribute('src')?.endsWith('.mov')) {
+        source.setAttribute('src', source.getAttribute('src').replace(/\.mov$/, '.mp4'));
+        source.setAttribute('type', 'video/mp4');
+        source.parentElement.load();
+      }
+    });
+  });
+</script>
 </body>
 </html>
