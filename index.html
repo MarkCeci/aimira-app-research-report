@@ -619,7 +619,13 @@
       const caseGalleries = [
         ['高德地图', '高德'], ['微信', '微信'], ['番茄免费小说', '番茄小说'],
         ['夸克浏览器', '夸克'], ['小红书', '小红书'], ['京东', '京东']
-      ].map(([name, folder]) => ({ name, images: Array.from({ length: 5 }, (_, i) => `assets/case-screens/${encodeURIComponent(folder)}/${i + 1}.jpg`) }));
+      ].map(([name, folder]) => ({
+        name,
+        images: Array.from({ length: 5 }, (_, i) => ({
+          full: `assets/case-screens/${encodeURIComponent(folder)}/${i + 1}.jpg`,
+          thumb: `assets/case-thumbnails/${encodeURIComponent(folder)}/${i + 1}.jpg`
+        }))
+      }));
       const galleryDialog = document.createElement('dialog');
       galleryDialog.className = 'case-gallery-dialog';
       galleryDialog.setAttribute('aria-label', '案例截图大图预览');
@@ -636,7 +642,7 @@
       let galleryScrollTop = 0;
       const renderGalleryImage = () => {
         const gallery = caseGalleries[activeGallery];
-        galleryImage.src = gallery.images[activeImage];
+        galleryImage.src = gallery.images[activeImage].full;
         galleryImage.alt = `${gallery.name}截图 ${activeImage + 1}`;
         galleryTitle.textContent = gallery.name;
         galleryIndicator.textContent = `${activeImage + 1} / ${gallery.images.length}`;
@@ -657,14 +663,14 @@
       all('#cases .case.video-case').forEach((card, i) => {
         const gallery = caseGalleries[i];
         const video = card.querySelector('video');
-        if (video) video.setAttribute('poster', gallery.images[0]);
+        if (video) video.setAttribute('poster', gallery.images[0].thumb);
         const thumbnails = document.createElement('div');
         thumbnails.className = 'case-gallery-thumbnails';
-        gallery.images.forEach((source, imageIndex) => {
+        gallery.images.forEach((image, imageIndex) => {
           const thumbnail = document.createElement('button');
           thumbnail.type = 'button';
           thumbnail.setAttribute('aria-label', `查看 ${gallery.name} 截图 ${imageIndex + 1}`);
-          thumbnail.innerHTML = `<img src="${source}" alt="${gallery.name} 截图 ${imageIndex + 1}" loading="lazy" decoding="async">`;
+          thumbnail.innerHTML = `<img src="${image.thumb}" alt="${gallery.name} 截图 ${imageIndex + 1}" loading="lazy" decoding="async">`;
           thumbnail.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
