@@ -177,12 +177,13 @@
   .case-gallery-dialog .gallery-prev{left:-54px}.case-gallery-dialog .gallery-next{right:-54px}
   .case-gallery-dialog button:hover{border-color:#82c5e8;background:#0b1d2c}
   @media(max-width:760px){.case-gallery-dialog{width:calc(100vw - 20px);padding:12px}.case-gallery-dialog figure{max-height:calc(100dvh - 44px)}.case-gallery-dialog img{max-height:calc(100dvh - 104px)}.case-gallery-dialog .gallery-prev,.case-gallery-dialog .gallery-next{top:auto;bottom:10px;width:38px;height:38px;transform:none;font-size:27px}.case-gallery-dialog .gallery-prev{left:12px}.case-gallery-dialog .gallery-next{right:12px}.case-gallery-dialog figcaption{justify-content:center;padding:12px 48px 2px}}
-  /* 五张案例截图以 Cover Flow 展示：仅中间卡请求原图，其余保留轻量缩略图。 */
+  /* 五张案例截图以 Cover Flow 展示：缩略图始终兜底，高清图完成解码后再淡入。 */
   .case-gallery-dialog{width:calc(100vw - 16px);max-width:1280px;max-height:calc(100dvh - 16px);padding:8px;background:radial-gradient(circle at 50% 35%,rgba(60,130,170,.12),transparent 48%),#040b13}
   .case-gallery-dialog .gallery-flow-figure{display:grid;grid-template-rows:minmax(0,1fr) auto;max-height:calc(100dvh - 32px);margin:0;overflow:hidden}
   .case-gallery-dialog .gallery-flow{position:relative;min-height:0;height:min(88dvh,940px);perspective:1000px;transform-style:preserve-3d;isolation:isolate;overflow:hidden}
   .case-gallery-dialog .gallery-flow-card{position:absolute;top:50%;left:50%;width:auto;height:min(84dvh,890px);aspect-ratio:1224 / 2912;padding:0;border-radius:16px;overflow:hidden;transform-style:preserve-3d;transform-origin:center;box-shadow:0 18px 42px rgba(0,0,0,.42);transition:transform 420ms cubic-bezier(.16,1,.3,1),opacity 260ms ease,filter 260ms ease;will-change:transform}
-  .case-gallery-dialog .gallery-flow-card img{display:block;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;background:#010407}
+  .case-gallery-dialog .gallery-flow-card img{position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;background:#010407}
+  .case-gallery-dialog .gallery-flow-full{opacity:0;transition:opacity 150ms ease}.case-gallery-dialog .gallery-flow-full.is-ready{opacity:1}
   .case-gallery-dialog .gallery-flow-card:not(.is-active){filter:brightness(.48) saturate(.62)}
   .case-gallery-dialog .gallery-flow-card.is-active{border-color:rgba(168,220,249,.72);box-shadow:0 24px 56px rgba(0,0,0,.56),0 0 0 1px rgba(185,229,252,.2)}
   .case-gallery-dialog .gallery-prev,.case-gallery-dialog .gallery-next{top:calc(50% - 22px);z-index:8;width:38px;height:52px;border-radius:10px;font-size:28px;transform:translateY(-50%)}
@@ -821,21 +822,22 @@
       let activeImage = 0;
       let galleryScrollTop = 0;
       let galleryFlowCards = [];
-      const pendingGalleryPreloads = new Set();
-      const preloadGalleryImages = (gallery, startIndex) => {
-        // 当前图由弹层直接请求；其余四张在打开时按浏览顺序预取，切换时直接命中缓存。
-        Array.from({ length: gallery.images.length - 1 }, (_, offset) => (
-          (startIndex + offset + 1) % gallery.images.length
-        )).forEach((imageIndex) => {
+      const loadGalleryFullImages = (gallery) => {
+        // 五张高清图以可见 DOM 元素同时高优先级请求；缩略图保留在下层，直到每张高清图解码完成。
+        galleryFlowCards.forEach(({ full }, imageIndex) => {
           const source = gallery.images[imageIndex];
-          if (pendingGalleryPreloads.has(source)) return;
-          pendingGalleryPreloads.add(source);
-          const preload = new Image();
-          preload.decoding = 'async';
-          const finish = () => pendingGalleryPreloads.delete(source);
-          preload.addEventListener('load', finish, { once: true });
-          preload.addEventListener('error', finish, { once: true });
-          preload.src = source;
+          if (full.dataset.source === source) return;
+          full.dataset.source = source;
+          full.loading = 'eager';
+          full.fetchPriority = 'high';
+          full.setAttribute('fetchpriority', 'high');
+          const reveal = () => full.classList.add('is-ready');
+          full.addEventListener('load', () => {
+            if (typeof full.decode !== 'function') return reveal();
+            full.decode().then(reveal).catch(reveal);
+          }, { once: true });
+          full.src = source;
+          if (full.complete && full.naturalWidth > 0) queueMicrotask(reveal);
         });
       };
       const renderGalleryFlow = (gallery) => {
@@ -848,11 +850,18 @@
             card.className = 'gallery-flow-card';
             card.setAttribute('role', 'listitem');
             card.setAttribute('aria-label', `查看 ${gallery.name} 截图 ${imageIndex + 1}`);
-            const image = document.createElement('img');
-            image.alt = `${gallery.name}截图 ${imageIndex + 1}`;
-            image.loading = imageIndex === activeImage ? 'eager' : 'lazy';
-            image.decoding = 'async';
-            card.append(image);
+            const thumbnail = document.createElement('img');
+            thumbnail.className = 'gallery-flow-thumbnail';
+            thumbnail.alt = `${gallery.name}截图 ${imageIndex + 1}`;
+            thumbnail.loading = 'eager';
+            thumbnail.decoding = 'async';
+            thumbnail.src = gallery.thumbnails[imageIndex];
+            const full = document.createElement('img');
+            full.className = 'gallery-flow-full';
+            full.alt = '';
+            full.setAttribute('aria-hidden', 'true');
+            full.decoding = 'async';
+            card.append(thumbnail, full);
             card.addEventListener('click', () => {
               activeImage = imageIndex;
               renderGalleryImage();
@@ -867,20 +876,14 @@
               renderGalleryImage();
             });
             galleryDots.append(dot);
-            return { card, image, dot };
+            return { card, thumbnail, full, dot };
           });
           galleryFlow.dataset.gallery = String(activeGallery);
         }
-        galleryFlowCards.forEach(({ card, image, dot }, imageIndex) => {
+        galleryFlowCards.forEach(({ card, dot }, imageIndex) => {
           const offset = imageIndex - activeImage;
           const distance = Math.abs(offset);
           const isActive = offset === 0;
-          const source = isActive ? gallery.images[imageIndex] : gallery.thumbnails[imageIndex];
-          if (image.dataset.source !== source) {
-            image.src = source;
-            image.dataset.source = source;
-          }
-          image.loading = isActive ? 'eager' : 'lazy';
           card.classList.toggle('is-active', isActive);
           card.setAttribute('aria-current', isActive ? 'true' : 'false');
           card.style.zIndex = String(20 - distance);
@@ -908,7 +911,7 @@
         activeGallery = galleryIndex;
         activeImage = imageIndex;
         renderGalleryImage();
-        preloadGalleryImages(caseGalleries[galleryIndex], imageIndex);
+        loadGalleryFullImages(caseGalleries[galleryIndex]);
         galleryDialog.showModal();
         requestAnimationFrame(() => window.scrollTo({ top: galleryScrollTop, behavior: 'auto' }));
       };
