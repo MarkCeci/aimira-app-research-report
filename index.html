@@ -231,7 +231,8 @@
       const systemIconBase = './icons/系统/';
       const localAppIcons = Object.fromEntries(Object.entries(localIconFiles).map(([name, file]) => [name, localIconBase + encodeURIComponent(file)]));
       const systemIcons = Object.fromEntries(Object.entries(systemIconFiles).map(([name, file]) => [name, systemIconBase + encodeURIComponent(file)]));
-      apps.forEach((app) => { app.icon = appStoreIcons[app.name] || localAppIcons[app.name] || systemIcons[app.name] || ''; });
+      // TOP100 图标只使用随报告发布的本地资源，避免 App Store 外部请求拖慢页面。
+      apps.forEach((app) => { app.icon = localAppIcons[app.name] || systemIcons[app.name] || ''; });
       const grid = document.getElementById('app-evaluation-grid');
       const tabs = document.getElementById('app-type-tabs');
       const prev = document.getElementById('app-page-prev');
@@ -746,7 +747,11 @@
         ['夸克浏览器', '夸克'], ['小红书', '小红书'], ['京东', '京东'],
         ['得到', '得到'], ['美颜相机', '美颜相机'], ['讯飞听见', '讯飞听见'],
         ['红果免费短剧', '红果免费短剧'], ['Keep', 'Keep'], ['抖音', '抖音']
-      ].map(([name, folder]) => ({ name, images: Array.from({ length: 5 }, (_, i) => `assets/case-screens/${encodeURIComponent(folder)}/${i + 1}.jpg`) }));
+      ].map(([name, folder]) => ({
+        name,
+        images: Array.from({ length: 5 }, (_, i) => `assets/case-screens/${encodeURIComponent(folder)}/${i + 1}.jpg`),
+        thumbnails: Array.from({ length: 5 }, (_, i) => `assets/case-thumbnails-webp/${encodeURIComponent(folder)}/${i + 1}.webp`)
+      }));
       const galleryDialog = document.createElement('dialog');
       galleryDialog.className = 'case-gallery-dialog';
       galleryDialog.setAttribute('aria-label', '案例截图大图预览');
@@ -781,17 +786,17 @@
         galleryDialog.showModal();
         requestAnimationFrame(() => window.scrollTo({ top: galleryScrollTop, behavior: 'auto' }));
       };
+      const deferredCaseMedia = [];
       all('#cases .case.video-case').forEach((card, i) => {
         const gallery = caseGalleries[i];
         const video = card.querySelector('video');
-        if (video) video.setAttribute('poster', gallery.images[0]);
         const thumbnails = document.createElement('div');
         thumbnails.className = 'case-gallery-thumbnails';
         gallery.images.forEach((source, imageIndex) => {
           const thumbnail = document.createElement('button');
           thumbnail.type = 'button';
           thumbnail.setAttribute('aria-label', `查看 ${gallery.name} 截图 ${imageIndex + 1}`);
-          thumbnail.innerHTML = `<img src="${source}" alt="${gallery.name} 截图 ${imageIndex + 1}" loading="lazy" decoding="async">`;
+          thumbnail.innerHTML = `<img data-src="${gallery.thumbnails[imageIndex]}" alt="${gallery.name} 截图 ${imageIndex + 1}" loading="lazy" decoding="async">`;
           thumbnail.addEventListener('click', (event) => {
             event.preventDefault();
             event.stopPropagation();
@@ -800,7 +805,25 @@
           thumbnails.append(thumbnail);
         });
         card.querySelector('.case-copy')?.append(thumbnails);
+        deferredCaseMedia.push({ card, gallery, video, thumbnails });
       });
+      const loadCaseMedia = ({ gallery, video, thumbnails }) => {
+        if (video && !video.poster) video.poster = gallery.thumbnails[0];
+        thumbnails.querySelectorAll('img[data-src]').forEach((image) => {
+          image.src = image.dataset.src;
+          image.removeAttribute('data-src');
+        });
+      };
+      if ('IntersectionObserver' in window) {
+        const caseMediaObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            loadCaseMedia(deferredCaseMedia.find((item) => item.card === entry.target));
+            observer.unobserve(entry.target);
+          });
+        }, { rootMargin: '420px 0px', threshold: .01 });
+        deferredCaseMedia.forEach((item) => caseMediaObserver.observe(item.card));
+      } else deferredCaseMedia.forEach(loadCaseMedia);
       galleryPrev.addEventListener('click', () => stepGallery(-1));
       galleryNext.addEventListener('click', () => stepGallery(1));
       galleryClose.addEventListener('click', () => galleryDialog.close());
@@ -824,6 +847,11 @@
       all('video').forEach((video) => {
         video.preload = 'none';
         video.setAttribute('preload', 'none');
+      });
+      // 非首屏图片不占用初始网络队列；进入浏览器预加载范围后再请求并异步解码。
+      all('main img').forEach((image) => {
+        image.loading = 'lazy';
+        image.decoding = 'async';
       });
 
       sectionHead('#top100', '100 个参考样本', '重点案例看做法，<br>100 个样本说明我们看得够不够广。', '这不是排名，而是一份完整参考清单。按类型切换，每页 10 个；先了解它为什么值得看，再用实际操作判断。');
