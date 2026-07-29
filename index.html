@@ -363,7 +363,8 @@
           const thumbnail = document.createElement('img');
           thumbnail.src = app.image;
     thumbnail.alt = app.name + '截图';
-          thumbnail.loading = 'lazy';
+          // 每页仅渲染 10 张，当前页应立即请求，避免部分浏览器延迟懒加载后留下空白图位。
+          thumbnail.loading = 'eager';
           thumbnail.decoding = 'async';
           screen.append(thumbnail);
         }
@@ -374,7 +375,7 @@
           icon.className = 'app-icon';
           icon.src = app.icon;
           icon.alt = app.name + ' App 图标';
-          icon.loading = 'lazy';
+          icon.loading = 'eager';
           icon.decoding = 'async';
           card.classList.add('has-icon');
         }
@@ -880,20 +881,24 @@
       const loadCaseMedia = ({ gallery, video, thumbnails }) => {
         if (video && !video.poster) video.poster = gallery.thumbnails[0];
         thumbnails.querySelectorAll('img[data-src]').forEach((image) => {
+          // 观察器已确认卡片即将进入视口，此时立即请求轻量缩略图，避免再被原生 lazy 延后。
+          image.loading = 'eager';
           image.src = image.dataset.src;
           image.removeAttribute('data-src');
         });
       };
-      if ('IntersectionObserver' in window) {
+      // 重点案例作为一个内容单元加载：靠近该区时一次加载全部轻量缩略图与封面，
+      // 避免逐卡观察器在快速滚动、浏览器节流时反复留下空白。原图与视频仍按点击请求。
+      const loadAllCaseMedia = () => deferredCaseMedia.forEach(loadCaseMedia);
+      const casesSection = document.getElementById('cases');
+      if ('IntersectionObserver' in window && casesSection) {
         const caseMediaObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            loadCaseMedia(deferredCaseMedia.find((item) => item.card === entry.target));
-            observer.unobserve(entry.target);
-          });
-        }, { rootMargin: '420px 0px', threshold: .01 });
-        deferredCaseMedia.forEach((item) => caseMediaObserver.observe(item.card));
-      } else deferredCaseMedia.forEach(loadCaseMedia);
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          loadAllCaseMedia();
+          observer.disconnect();
+        }, { rootMargin: '900px 0px', threshold: 0 });
+        caseMediaObserver.observe(casesSection);
+      } else loadAllCaseMedia();
       galleryPrev.addEventListener('click', () => stepGallery(-1));
       galleryNext.addEventListener('click', () => stepGallery(1));
       galleryClose.addEventListener('click', () => galleryDialog.close());
@@ -920,7 +925,8 @@
       });
       // 非首屏图片不占用初始网络队列；进入浏览器预加载范围后再请求并异步解码。
       all('main img').forEach((image) => {
-        image.loading = 'lazy';
+        // TOP100 只保留当前 10 张卡；该页图片由 renderApps 立即加载，其余页面不会进入 DOM。
+        if (!image.closest('.app-card')) image.loading = 'lazy';
         image.decoding = 'async';
       });
 
