@@ -4,8 +4,29 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>国内优秀 APP 交互体验调研成果汇报</title>
+  <script>
+    (() => {
+      const navigation = performance.getEntriesByType?.('navigation')[0];
+      const isReload = navigation?.type === 'reload' || performance.navigation?.type === 1;
+      if (!isReload) return;
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      document.documentElement.dataset.resetScroll = 'true';
+      document.documentElement.style.scrollBehavior = 'auto';
+      const resetToTop = () => window.scrollTo(0, 0);
+      resetToTop();
+      window.addEventListener('DOMContentLoaded', resetToTop, { once: true });
+      window.addEventListener('load', resetToTop, { once: true });
+      window.addEventListener('pageshow', () => {
+        resetToTop();
+        requestAnimationFrame(() => {
+          resetToTop();
+          document.documentElement.removeAttribute('data-reset-scroll');
+        });
+      }, { once: true });
+    })();
+  </script>
   <style>
-    :root{--bg:#030811;--panel:#0a1727;--line:rgba(195,222,243,.16);--line2:rgba(167,213,246,.42);--text:#f1f6fa;--muted:#b7c8d5;--blue:#79c9ff;--silver:#dceaf6;--safe:#9be4cd}
+    html[data-reset-scroll="true"] body{visibility:hidden}:root{--bg:#030811;--panel:#0a1727;--line:rgba(195,222,243,.16);--line2:rgba(167,213,246,.42);--text:#f1f6fa;--muted:#b7c8d5;--blue:#79c9ff;--silver:#dceaf6;--safe:#9be4cd}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.65;background-image:radial-gradient(circle at 85% 0,rgba(46,125,202,.17),transparent 27rem),linear-gradient(180deg,#030811,#071321 46%,#030811)}
     .top{height:64px;display:flex;justify-content:space-between;align-items:center;padding:0 5vw;border-bottom:1px solid var(--line);background:rgba(3,8,17,.72);backdrop-filter:blur(15px);position:fixed;top:0;left:0;right:0;z-index:5}.logo{font-size:12px;font-weight:700;letter-spacing:.15em}.logo span{color:var(--blue);font-weight:500;margin-left:9px}.top a{font-size:12px;color:var(--muted);text-decoration:none;margin-left:16px}.top a:hover{color:var(--blue)}
     .hero{min-height:780px;padding:160px 7vw 74px;display:flex;align-items:flex-end;position:relative;overflow:hidden;isolation:isolate}.hero:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(3,8,17,.98),rgba(3,8,17,.87) 40%,rgba(3,8,17,.23) 74%,rgba(3,8,17,.4))}.hero:after{content:"";position:absolute;z-index:-2;inset:0;background:url("assets/research-hero.png") center/cover no-repeat;opacity:.77}.eyebrow,.index{font:700 11px/1 system-ui;letter-spacing:.09em;color:var(--blue)}h1{font-size:clamp(46px,6.4vw,88px);line-height:1.06;letter-spacing:-.035em;margin:17px 0 24px;text-wrap:balance}.hero p{max-width:660px;font-size:19px;color:#d2e1ec;margin:0;text-wrap:pretty}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:34px}.chip{font-size:13px;color:#d5e6f2;border:1px solid var(--line2);padding:7px 12px;border-radius:20px;background:rgba(5,18,32,.45)}
@@ -455,12 +476,6 @@
   <script>
     // 老板汇报版：将专业表述改为可直接听懂的日常语言。
     (() => {
-      const navigation = performance.getEntriesByType?.('navigation')[0];
-      const isReload = navigation?.type === 'reload' || performance.navigation?.type === 1;
-      if (isReload) {
-        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-        window.addEventListener('pageshow', () => window.scrollTo(0, 0), { once: true });
-      }
       const one = (selector) => document.querySelector(selector);
       const all = (selector) => [...document.querySelectorAll(selector)];
       const text = (selector, value) => { const el = one(selector); if (el) el.textContent = value; };
