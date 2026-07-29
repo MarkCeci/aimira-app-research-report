@@ -240,11 +240,11 @@
 
       // 补充图标：来自本地 APP_icons_512px，由文件名与 TOP100 样本逐一匹配。
       const localIconFiles = {"Soul":"Soul.png","腾讯会议":"腾讯会议.png","哔哩哔哩(B站)":"哔哩哔哩.png","豆瓣":"豆瓣.png","淘宝(Vision Pro版)":"淘宝（Vision Pro 版）.png","淘宝":"淘宝.png","拼多多":"拼多多.png","京东":"京东.png","得物":"得物.png","闲鱼":"闲鱼.png","网易严选":"网易严选.png","唯品会":"唯品会.png","美团":"美团.png","饿了么":"饿了么.png","盒马":"盒马.png","肯德基APP":"肯德基 App.png","蚂蚁财富":"蚂蚁财富.png","云闪付":"云闪付.png","滴滴出行":"滴滴出行.png","高德地图":"高德地图.png","同程旅行":"同程旅行.png","哈啰出行":"哈啰出行.png","VUE Vlog":"VUE Vlog.png","夸克浏览器":"夸克浏览器.png","石墨文档":"石墨文档.png","腾讯文档":"腾讯文档.png","滴答清单":"滴答清单.png","白描":"白描.png","Xmind思维导图":"Xmind 思维导图.png","CapWords":"CapWords.png","网易蜗牛读书":"网易蜗牛读书.png","得到":"得到.png","Keep":"Keep.png","丁香园":"丁香园.png","薄荷健康":"薄荷健康.png","好大夫在线":"好大夫在线.png","北京健康宝":"北京健康宝.png","今日头条":"今日头条.png","腾讯新闻":"腾讯新闻.png","36氪":"36氪.png","iDaily·每日环球视野":"iDaily.png","iMuseum·每日环球展览":"iMuseum.png","豆包":"豆包.png","Kimi":"Kimi.png","DeepSeek":"DeepSeek.png","文心一言":"文心一言.png","通义千问":"通义千问.png","美图秀秀":"美图秀秀.png","原神":"原神.png","光·遇":"光·遇.png","王者荣耀":"王者荣耀.png","无限暖暖":"无限暖暖.png","崩坏:星穹铁道":"崩坏：星穹铁道.png","和平精英":"和平精英.png","纪念碑谷2":"纪念碑谷2.png","即梦(AI绘画)":"即梦.png","秘塔写作猫":"秘塔写作猫.png","讯飞听见":"讯飞听见.png","随申办":"随申办.png","贝壳找房":"贝壳找房.png","中信银行APP 7.0":"中信银行 App.png","九号出行(Segway-Ninebot App 6.0)":"九号出行.png"};
-      const localIconBase = './icons/APP_icons_512px/';
+      const localIconBase = './assets/app-icons-webp/';
       const systemIconFiles = {"HarmonyOS/鸿蒙OS":"HarmonyOS.png","ColorOS/OPPO":"ColorOS.png","OriginOS/vivo":"OriginOS.png","HyperOS/澎湃OS（小米）":"HyperOS.png","MagicOS/荣耀":"MagicOS.png","FlymeOS/魅族":"FlymeOS.png","iOS/苹果":"iOS.png"};
-      const systemIconBase = './icons/系统/';
-      const localAppIcons = Object.fromEntries(Object.entries(localIconFiles).map(([name, file]) => [name, localIconBase + encodeURIComponent(file)]));
-      const systemIcons = Object.fromEntries(Object.entries(systemIconFiles).map(([name, file]) => [name, systemIconBase + encodeURIComponent(file)]));
+      const systemIconBase = './assets/system-icons-webp/';
+      const localAppIcons = Object.fromEntries(Object.entries(localIconFiles).map(([name, file]) => [name, localIconBase + encodeURIComponent(file.replace(/\.png$/i, '.webp'))]));
+      const systemIcons = Object.fromEntries(Object.entries(systemIconFiles).map(([name, file]) => [name, systemIconBase + encodeURIComponent(file.replace(/\.png$/i, '.webp'))]));
       // TOP100 图标只使用随报告发布的本地资源，避免 App Store 外部请求拖慢页面。
       // 图标映射在 TOP100 数据加载后统一写入。
       const grid = document.getElementById('app-evaluation-grid');
@@ -697,7 +697,7 @@
         const label = source.textContent.trim();
         const icon = document.createElement('img');
         icon.className = 'case-app-icon';
-        icon.src = 'assets/case-icons/' + encodeURIComponent(caseIconFiles[i]);
+        icon.src = 'assets/case-icons-webp/' + encodeURIComponent(caseIconFiles[i].replace(/\.(?:png|jpe?g)$/i, '.webp'));
         icon.alt = caseIconNames[i] + '图标';
         icon.loading = 'lazy';
         icon.decoding = 'async';
@@ -743,7 +743,7 @@
       additionalCases.forEach((item) => {
         if (!caseGrid || !videoTemplate) return;
         const card = videoTemplate.cloneNode(true);
-        const icon = `<span class="case-app-badge"><img class="case-app-icon" src="assets/case-icons/${encodeURIComponent(item.icon)}" alt="${item.name}图标"><small>${item.name}</small></span>`;
+        const icon = `<span class="case-app-badge"><img class="case-app-icon" src="assets/case-icons-webp/${encodeURIComponent(item.icon.replace(/\.(?:png|jpe?g)$/i, '.webp'))}" alt="${item.name}图标"><small>${item.name}</small></span>`;
         card.querySelector('.case-copy').innerHTML = `<div class="case-source">${icon}<span>${item.source}</span></div><span class="tag">${item.tag}</span><h3>${item.title}</h3><div class="case-logic"><b>匹配核心逻辑</b><div class="case-logic-tags">${item.logic.map((entry) => `<span class="case-logic-tag">${entry}</span>`).join('')}</div></div><div class="case-insights"><p><b>关键动作</b><span>${item.action}</span></p><p><b>体验结果</b><span>${item.result}</span></p></div><div class="case-takeaway"><b>值得借鉴</b><span>${item.takeaway}</span></div>`;
         card.querySelector('.case-video').outerHTML = `<figure class="case-video"><div class="phone-frame"><video controls muted playsinline preload="metadata" aria-label="${item.name}录屏"><source src="assets/case-videos/${encodeURIComponent(item.video || item.name + '.mp4')}" type="video/mp4">当前浏览器无法播放该视频。</video></div><figcaption><b>${item.name} · 操作录屏</b><span>从入口到完成关键操作</span></figcaption></figure>`;
         caseGrid.append(card);
@@ -802,7 +802,7 @@
         ['红果免费短剧', '红果免费短剧'], ['Keep', 'Keep'], ['抖音', '抖音']
       ].map(([name, folder]) => ({
         name,
-        images: Array.from({ length: 5 }, (_, i) => `assets/case-screens/${encodeURIComponent(folder)}/${i + 1}.jpg`),
+        images: Array.from({ length: 5 }, (_, i) => `assets/case-screens-webp/${encodeURIComponent(folder)}/${i + 1}.webp`),
         thumbnails: Array.from({ length: 5 }, (_, i) => `assets/case-thumbnails-webp/${encodeURIComponent(folder)}/${i + 1}.webp`)
       }));
       const galleryDialog = document.createElement('dialog');
@@ -821,6 +821,23 @@
       let activeImage = 0;
       let galleryScrollTop = 0;
       let galleryFlowCards = [];
+      const pendingGalleryPreloads = new Set();
+      const preloadGalleryImages = (gallery, startIndex) => {
+        // 当前图由弹层直接请求；其余四张在打开时按浏览顺序预取，切换时直接命中缓存。
+        Array.from({ length: gallery.images.length - 1 }, (_, offset) => (
+          (startIndex + offset + 1) % gallery.images.length
+        )).forEach((imageIndex) => {
+          const source = gallery.images[imageIndex];
+          if (pendingGalleryPreloads.has(source)) return;
+          pendingGalleryPreloads.add(source);
+          const preload = new Image();
+          preload.decoding = 'async';
+          const finish = () => pendingGalleryPreloads.delete(source);
+          preload.addEventListener('load', finish, { once: true });
+          preload.addEventListener('error', finish, { once: true });
+          preload.src = source;
+        });
+      };
       const renderGalleryFlow = (gallery) => {
         if (galleryFlowCards.length !== gallery.images.length || galleryFlow.dataset.gallery !== String(activeGallery)) {
           galleryFlow.replaceChildren();
@@ -891,6 +908,7 @@
         activeGallery = galleryIndex;
         activeImage = imageIndex;
         renderGalleryImage();
+        preloadGalleryImages(caseGalleries[galleryIndex], imageIndex);
         galleryDialog.showModal();
         requestAnimationFrame(() => window.scrollTo({ top: galleryScrollTop, behavior: 'auto' }));
       };
