@@ -10,7 +10,6 @@
       const isReload = navigation?.type === 'reload' || performance.navigation?.type === 1;
       if (!isReload) return;
       if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-      document.documentElement.dataset.resetScroll = 'true';
       document.documentElement.style.scrollBehavior = 'auto';
       const resetToTop = () => window.scrollTo(0, 0);
       resetToTop();
@@ -20,13 +19,12 @@
         resetToTop();
         requestAnimationFrame(() => {
           resetToTop();
-          document.documentElement.removeAttribute('data-reset-scroll');
         });
       }, { once: true });
     })();
   </script>
   <style>
-    html[data-reset-scroll="true"] body{visibility:hidden}:root{--bg:#030811;--panel:#0a1727;--line:rgba(195,222,243,.16);--line2:rgba(167,213,246,.42);--text:#f1f6fa;--muted:#b7c8d5;--blue:#79c9ff;--silver:#dceaf6;--safe:#9be4cd}
+    :root{--bg:#030811;--panel:#0a1727;--line:rgba(195,222,243,.16);--line2:rgba(167,213,246,.42);--text:#f1f6fa;--muted:#b7c8d5;--blue:#79c9ff;--silver:#dceaf6;--safe:#9be4cd}
     *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.65;background-image:radial-gradient(circle at 85% 0,rgba(46,125,202,.17),transparent 27rem),linear-gradient(180deg,#030811,#071321 46%,#030811)}
     .top{height:64px;display:flex;justify-content:space-between;align-items:center;padding:0 5vw;border-bottom:1px solid var(--line);background:rgba(3,8,17,.72);backdrop-filter:blur(15px);position:fixed;top:0;left:0;right:0;z-index:5}.logo{font-size:12px;font-weight:700;letter-spacing:.15em}.logo span{color:var(--blue);font-weight:500;margin-left:9px}.top a{font-size:12px;color:var(--muted);text-decoration:none;margin-left:16px}.top a:hover{color:var(--blue)}
     .hero{min-height:780px;padding:160px 7vw 74px;display:flex;align-items:flex-end;position:relative;overflow:hidden;isolation:isolate}.hero:before{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(3,8,17,.98),rgba(3,8,17,.87) 40%,rgba(3,8,17,.23) 74%,rgba(3,8,17,.4))}.hero:after{content:"";position:absolute;z-index:-2;inset:0;background:url("assets/research-hero.png") center/cover no-repeat;opacity:.77}.eyebrow,.index{font:700 11px/1 system-ui;letter-spacing:.09em;color:var(--blue)}h1{font-size:clamp(46px,6.4vw,88px);line-height:1.06;letter-spacing:-.035em;margin:17px 0 24px;text-wrap:balance}.hero p{max-width:660px;font-size:19px;color:#d2e1ec;margin:0;text-wrap:pretty}.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:34px}.chip{font-size:13px;color:#d5e6f2;border:1px solid var(--line2);padding:7px 12px;border-radius:20px;background:rgba(5,18,32,.45)}
@@ -822,6 +820,11 @@
       if (evidenceShot) evidenceShot.outerHTML = `<div class="evidence-board"><figure class="evidence-video"><video controls preload="metadata" playsinline aria-label="演示录屏"><source src="assets/evidence/操作视频占位.mp4" type="video/mp4">当前浏览器无法播放该视频。</video><figcaption><b>演示录屏 · 45 秒</b><span>可播放 / 暂停 / 拖动进度</span></figcaption></figure><article class="evidence-copy"><p class="evidence-kicker">真实操作证据 · 后续补充</p><h3>每个结论都要有一段录屏，<br>看清用户怎么把事办完。</h3><p>这里先展示最终材料的呈现方式。正式汇报时，会替换为重点 App 从入口到结果的真实操作过程。</p><div class="evidence-fill"><div class="evidence-field"><b>体验对象</b><span>补充 App 名称</span></div><div class="evidence-field"><b>要完成的事</b><span>补充操作任务</span></div><div class="evidence-field"><b>最关键的一步</b><span>补充入口或提示</span></div><div class="evidence-field"><b>一句话结论</b><span>补充它为什么更省事</span></div></div><div class="evidence-shot-slot"><strong>关键页面截图 · 后续补充</strong><small>一张截图只说明一件事：入口、进度、说明或下一步。</small></div><div class="evidence-note"><b>正式汇报时只说三件事：</b>用户要做什么、它少了哪一步、我们可以学哪一点。</div></article></div>`;
       one('#evidence')?.remove();
       one('.top nav a[href="#evidence"]')?.remove();
+      // 所有案例视频都只在用户点击播放后请求媒体；案例截图已作为 poster 预先设置。
+      all('video').forEach((video) => {
+        video.preload = 'none';
+        video.setAttribute('preload', 'none');
+      });
 
       sectionHead('#top100', '100 个参考样本', '重点案例看做法，<br>100 个样本说明我们看得够不够广。', '这不是排名，而是一份完整参考清单。按类型切换，每页 10 个；先了解它为什么值得看，再用实际操作判断。');
       html('#top100 .app-evaluation-toolbar p', '<b>100 个 App 的参考说明</b>｜资料来自《国内交互设计优秀 APP 研究报告 TOP100》；最终判断以实际操作为准。');
