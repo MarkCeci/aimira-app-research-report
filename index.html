@@ -197,8 +197,7 @@
   #cases .video-case .case-copy{position:relative}
   #cases .video-case .case-source{display:block;min-height:0;padding-right:86px}
   #cases .video-case .case-app-icon{position:absolute;top:0;right:0;width:66px;height:66px;border-radius:16px;box-shadow:0 0 0 1px rgba(214,238,250,.28),0 10px 22px rgba(0,0,0,.18)}
-  #cases .video-case .case-gallery-thumbnails{display:flex;gap:10px;margin-top:30px}
-  #cases .video-case .case-gallery-thumbnails button{flex:0 0 74px}
+  #cases .video-case .case-gallery-thumbnails{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:30px}
   #cases .video-case .case-gallery-thumbnails button{appearance:none;min-width:0;padding:4px;border:1px solid rgba(130,197,232,.28);background:#06111d;aspect-ratio:1224 / 2912;cursor:pointer;overflow:hidden;transition:border-color 160ms ease,transform 160ms ease,background-color 160ms ease}
   #cases .video-case .case-gallery-thumbnails button:hover{border-color:#82c5e8;background:#0a1b2a;transform:translateY(-2px)}
   #cases .video-case .case-gallery-thumbnails button:focus-visible{outline:2px solid #82c5e8;outline-offset:3px}
@@ -901,7 +900,8 @@
         const video = card.querySelector('video');
         const thumbnails = document.createElement('div');
         thumbnails.className = 'case-gallery-thumbnails';
-        [0].forEach((imageIndex) => {
+        // 卡片内保留完整的五张轻量缩略图；原图仍只在打开大图时请求。
+        gallery.images.forEach((_, imageIndex) => {
           const source = gallery.thumbnails[imageIndex];
           const thumbnail = document.createElement('button');
           thumbnail.type = 'button';
