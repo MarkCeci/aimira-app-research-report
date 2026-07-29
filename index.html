@@ -33,7 +33,7 @@
     /* TOP100 browser: fixed card geometry keeps hover details inside their own card. */
     .app-evaluation-toolbar{margin:-12px 0 14px}.app-evaluation-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.app-type-tabs{display:flex;gap:7px;flex-wrap:wrap}.app-type-tab,.app-page-button{appearance:none;border:1px solid var(--line);background:rgba(11,28,46,.54);color:#b9ccd8;font:600 12px/1 system-ui;cursor:pointer;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease,transform 150ms var(--ease-out)}.app-type-tab{padding:8px 10px}.app-type-tab small{margin-left:5px;color:#7f9daf;font-size:10px}.app-type-tab:hover,.app-type-tab[aria-selected="true"]{color:#edf8ff;border-color:rgba(121,201,255,.72);background:rgba(35,86,124,.4)}.app-type-tab[aria-selected="true"] small{color:#bfe6ff}.app-type-tab:active,.app-page-button:active{transform:scale(.97)}.app-pagination{display:flex;align-items:center;gap:8px;flex-shrink:0}.app-page-button{width:31px;height:31px;color:#d8e8f2;font-size:17px}.app-page-button:disabled{opacity:.35;cursor:not-allowed}.app-page-indicator{min-width:94px;text-align:center;color:#9db5c5;font-size:12px;font-variant-numeric:tabular-nums}.app-evaluation-grid{min-height:410px;align-content:start}.app-card{min-height:178px;grid-template-columns:68px minmax(0,1fr);gap:13px;padding:13px;border-color:rgba(195,222,243,.2);overflow:hidden}.app-screen{width:68px;height:112px;flex-shrink:0}.app-copy{position:relative;min-width:0}.app-card h3{margin:5px 0 7px;font-size:16px;line-height:1.25}.app-detail-stage{position:relative;height:82px;overflow:hidden}.app-highlight,.app-meta{position:absolute;inset:0;margin:0;transition:opacity 160ms var(--ease-out),transform 160ms var(--ease-out)}.app-highlight{display:-webkit-box!important}.app-meta{display:block;z-index:0;padding:0;background:transparent;opacity:0;pointer-events:none;transform:translateY(5px);overflow:hidden}.app-meta p{display:block;margin:0 0 3px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:10px;line-height:1.35}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:0;transform:translateY(-5px)}.app-card:hover .app-meta,.app-card:focus-within .app-meta{opacity:1;transform:translateY(0)}.app-card:hover .app-screen,.app-card:focus-within .app-screen{position:static;z-index:auto}.app-card[hidden]{display:none}.app-empty{grid-column:1/-1;min-height:190px;display:grid;place-items:center;text-align:center;border:1px dashed var(--line2);color:#9db4c3;font-size:14px}
     .app-evaluation-grid{grid-template-columns:repeat(2,minmax(0,1fr));min-height:510px}.app-card{min-height:184px;grid-template-columns:minmax(0,1fr) 76px;gap:16px;padding:16px;overflow:visible}.app-card.has-icon{grid-template-columns:42px minmax(0,1fr) 76px}.app-screen{grid-column:2;width:76px;height:124px;margin-top:28px;position:relative}.app-card.has-icon .app-icon{grid-column:1}.app-card.has-icon .app-copy{grid-column:2}.app-card.has-icon .app-screen{grid-column:3}.app-screen.has-image{position:relative;overflow:hidden;border-style:solid}.app-screen.has-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.app-screen.has-image span{position:relative;z-index:1;padding:5px;background:linear-gradient(0deg,rgba(3,10,18,.94),rgba(3,10,18,.22));border-top:0;text-shadow:0 1px 2px rgba(0,0,0,.8)}.app-card h3{font-size:18px;margin-bottom:8px}.app-copy{grid-column:1;padding-top:0;padding-right:46px}.app-detail-stage{height:62px}.app-details{position:absolute;z-index:5;top:13px;right:13px;left:auto}.app-details-button{height:24px;padding:0 8px;border:1px solid rgba(121,201,255,.45);background:rgba(6,20,34,.9);color:#bfe5fd;font:600 11px/1 system-ui;cursor:pointer;transition:color 150ms ease,background-color 150ms ease,border-color 150ms ease,transform 150ms var(--ease-out)}.app-details-button:hover,.app-details-button:focus-visible,.app-details.is-open .app-details-button{border-color:var(--blue);background:rgba(27,72,106,.88);color:#eff9ff;outline:0}.app-details-button:active{transform:scale(.96)}.app-details-popover{position:absolute;z-index:20;top:calc(100% + 8px);right:0;bottom:auto!important;left:auto;width:min(360px,calc(100vw - 72px));height:auto!important;max-height:none!important;padding:11px 12px!important;border:1px solid rgba(121,201,255,.55);background:rgba(4,14,25,.98)!important;box-shadow:0 12px 28px rgba(0,0,0,.3);overflow:visible!important;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(5px);transition:opacity 150ms var(--ease-out),transform 150ms var(--ease-out),visibility 150ms var(--ease-out)}.app-details-popover p{display:block!important;margin:0 0 5px!important;white-space:normal!important;overflow:visible!important;text-overflow:clip!important;font-size:11px!important;line-height:1.45!important}.app-details-popover p:last-child{margin-bottom:0!important}.app-card:has(.app-details:hover),.app-card:has(.app-details.is-open),.app-card:focus-within{z-index:10}.app-card:hover .app-details-popover,.app-card:focus-within .app-details-popover{opacity:0;visibility:hidden;transform:translateY(5px)}.app-card:hover .app-screen,.app-card:focus-within .app-screen{position:relative;z-index:auto}.app-details:hover .app-details-popover,.app-details:focus-within .app-details-popover,.app-details.is-open .app-details-popover{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:1;transform:none}.app-meta p{margin-bottom:4px;font-size:11px}
-    .app-card.has-icon{grid-template-columns:42px minmax(0,1fr) 76px}.app-icon{width:42px;height:42px;margin-top:0;object-fit:cover;border-radius:10px;border:1px solid rgba(195,222,243,.25);background:#07101b}.app-detail-stage{height:68px}.app-highlight{position:static!important;display:-webkit-box!important;margin:0!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical;overflow:hidden;font-size:13px!important;line-height:1.52!important}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:1!important;transform:none!important}
+    .app-card.has-icon{grid-template-columns:42px minmax(0,1fr) 76px}.app-card.no-image{grid-template-columns:minmax(0,1fr)}.app-card.no-image.has-icon{grid-template-columns:42px minmax(0,1fr)}.app-icon{width:42px;height:42px;margin-top:0;object-fit:cover;border-radius:10px;border:1px solid rgba(195,222,243,.25);background:#07101b}.app-detail-stage{height:68px}.app-highlight{position:static!important;display:-webkit-box!important;margin:0!important;-webkit-line-clamp:2!important;-webkit-box-orient:vertical;overflow:hidden;font-size:13px!important;line-height:1.52!important}.app-card:hover .app-highlight,.app-card:focus-within .app-highlight{opacity:1!important;transform:none!important}
     @media(max-width:900px){.app-evaluation-controls{align-items:flex-start;flex-direction:column}.app-pagination{align-self:flex-end}.app-evaluation-grid{min-height:0}}@media(max-width:560px){.app-evaluation-grid{grid-template-columns:1fr}.app-screen{height:112px}}
     @media(max-width:560px){.app-type-tabs{flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:5px}.app-type-tab{white-space:nowrap}.app-evaluation-controls{gap:11px}.app-pagination{align-self:stretch;justify-content:flex-end}.app-detail-stage{height:76px}}
     /* Compact TOP100 cards: content stays in one top-aligned row instead of stretching to the grid's reserved height. */
@@ -206,9 +206,9 @@
       const appStoreIcons = {"微博":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/58/8c/9d/588c9d63-0920-4edf-9d41-d2b1c3eee3eb/WeiboAppIcon-0-0-1x_U007epad-0-1-0-0-85-220.png/512x512bb.jpg","QQ":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a9/e7/0f/a9e70f4d-ec88-a832-b9c0-756bc0e6057a/AppIcon-1-0-1x_U007epad-0-1-0-sRGB-85-220-0.png/512x512bb.jpg","支付宝":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/8d/a0/c28da0b8-cc69-f836-1c13-7a8339aca917/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg","腾讯视频":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a3/2a/b1/a32ab1e5-cd01-25e3-723a-d8fd05d35089/AppIcon-0-0-1x_U007epad-0-1-0-0-sRGB-85-220.png/512x512bb.jpg","知乎":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/77/f0/07/77f007e2-9937-f9dc-0645-b2a4a0876747/AppIcon-0-0-1x_U007emarketing-0-7-0-0-sRGB-85-220.png/512x512bb.jpg","网易云音乐":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/2f/f6/812ff637-bce6-c70a-db2e-49f66cae73e3/appIconNew-0-1x_U007epad-0-1-0-85-220-0.png/512x512bb.jpg","携程旅行":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/24/a4/cc/24a4ccc5-3fad-9236-e301-272b4838e640/AppIcon-0-0-1x_U007emarketing-0-5-0-85-220.png/512x512bb.jpg","抖音":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/d1/42/eed14296-137d-89ae-0d78-24b34124a621/AppIcon-0-0-1x_U007emarketing-0-0-0-7-0-0-85-220.png/512x512bb.jpg","扫描全能王":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/3d/0c/a6/3d0ca6bb-b565-7345-4a55-f88fe7afbd9e/AppIconLite-0-0-1x_U007ephone-0-6-0-0-sRGB-85-220.png/512x512bb.jpg","飞书":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/78/bd/08/78bd08fc-8f6c-be2b-7ea4-59483f77d373/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-85-220.png/512x512bb.jpg","即刻":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/98/bf/e6/98bfe60a-2f54-cef2-fff5-02ce037d80b9/AppIcon-0-0-1x_U007ephone-0-1-0-85-220.png/512x512bb.jpg","钉钉":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/2b/2a/86/2b2a864a-43f9-b73d-35c4-08e3f879b7e2/AppIcon-0-0-1x_U007epad-0-0-0-1-0-0-sRGB-85-220.png/512x512bb.jpg","小红书":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a2/28/4c/a2284c91-c956-6846-2849-9efa85fb56c6/AppIcon-0-0-1x_U007epad-0-11-0-85-220.png/512x512bb.jpg","T3出行":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/b7/f0/0d/b7f00dfa-0edb-8bed-c820-0932d8fa7722/AppIcon-0-0-1x_U007ephone-0-1-0-0-85-220.png/512x512bb.jpg","百度地图":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/de/8c/01/de8c01bf-3783-7676-97bb-8fb50e53767c/appIconLiquid-0-0-1x_U007epad-0-1-0-0-sRGB-85-220.png/512x512bb.jpg","ProcessOn":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/a0/b1/02/a0b1024d-ffd4-8952-ad0a-c9532413b3d6/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg","优酷":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/db/55/5a/db555a17-5f07-f78a-5cfc-9c0d2b1bb8dc/AppIcon-0-0-1x_U007emarketing-0-9-0-0-85-220.png/512x512bb.jpg","汽水音乐":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/db/6f/dd/db6fdd4c-aa7c-dce0-724c-56df5a2d78ff/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg","招商银行APP":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/5b/e3/14/5be314a8-4096-aa01-7128-0adca1e0b2a5/AppIcon26-0-0-1x_U007epad-0-1-0-0-sRGB-85-220.png/512x512bb.jpg","QQ音乐":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/75/56/40/7556408c-d5f4-ca20-68ef-63c6052ecfdc/AppIcon-0-0-1x_U007ephone-0-0-0-1-0-0-sRGB-85-220.png/512x512bb.jpg","多邻国(Duolingo)":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/8e/a6/78/8ea6788a-4927-aedf-8186-ac213127368e/AppIcon-0-0-1x_U007epad-0-1-85-220.png/512x512bb.jpg","WPS Office":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/d1/f1/02/d1f1022a-0b39-6dd7-2ac7-46043e25739c/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-0-85-220.png/512x512bb.jpg","大众点评":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/05/64/6f/05646fa4-04f0-1b06-286b-93f020d56c8b/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg","爱奇艺":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/dd/78/91/dd789127-ae72-f44a-e8dd-d96795fbe1b0/AppIcon-0-1x_U007ephone-0-0-0-1-0-0-sRGB-85-220-0.png/512x512bb.jpg","印象笔记":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/49/e3/e3/49e3e370-6815-3e9a-81f9-2bcc27195c27/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg","微信读书":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/30/a1/01/30a10106-9bde-dd61-8f3b-7f4ba6bb0ba9/AppIcon-0-1x_U007epad-0-11-0-85-220-0.png/512x512bb.jpg","芒果TV":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ba/3a/1a/ba3a1af5-7e7e-ab90-7133-1a7c74c16b04/AppIcon-0-0-1x_U007ephone-0-1-0-0-0-85-220.png/512x512bb.jpg","快手":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/2a/c2/c7/2ac2c74e-9926-ac03-b615-b9a3ec4a3ab1/AppIcon-0-0-1x_U007emarketing-0-8-0-sRGB-85-220.png/512x512bb.jpg","瑞幸咖啡":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/11/78/9d/11789dd9-2978-ca72-a4e7-0823cdc5cb2b/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/512x512bb.jpg","雪球":"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/f6/67/4d/f6674d4a-dfe3-2dae-c8a2-66e7d99ad79e/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-85-220.png/512x512bb.jpg","微信":"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e4/4f/16/e44f16cb-0a64-464e-13f2-05091f930c79/AppIcon-0-0-1x_U007epad-0-1-0-sRGB-0-85-220.png/512x512bb.jpg"};
       // 补充图标：来自本地 APP_icons_512px，由文件名与 TOP100 样本逐一匹配。
       const localIconFiles = {"Soul":"Soul.png","腾讯会议":"腾讯会议.png","哔哩哔哩(B站)":"哔哩哔哩.png","豆瓣":"豆瓣.png","淘宝(Vision Pro版)":"淘宝（Vision Pro 版）.png","淘宝":"淘宝.png","拼多多":"拼多多.png","京东":"京东.png","得物":"得物.png","闲鱼":"闲鱼.png","网易严选":"网易严选.png","唯品会":"唯品会.png","美团":"美团.png","饿了么":"饿了么.png","盒马":"盒马.png","肯德基APP":"肯德基 App.png","蚂蚁财富":"蚂蚁财富.png","云闪付":"云闪付.png","滴滴出行":"滴滴出行.png","高德地图":"高德地图.png","同程旅行":"同程旅行.png","哈啰出行":"哈啰出行.png","VUE Vlog":"VUE Vlog.png","夸克浏览器":"夸克浏览器.png","石墨文档":"石墨文档.png","腾讯文档":"腾讯文档.png","滴答清单":"滴答清单.png","白描":"白描.png","Xmind思维导图":"Xmind 思维导图.png","CapWords":"CapWords.png","网易蜗牛读书":"网易蜗牛读书.png","得到":"得到.png","Keep":"Keep.png","丁香园":"丁香园.png","薄荷健康":"薄荷健康.png","好大夫在线":"好大夫在线.png","北京健康宝":"北京健康宝.png","今日头条":"今日头条.png","腾讯新闻":"腾讯新闻.png","36氪":"36氪.png","iDaily·每日环球视野":"iDaily.png","iMuseum·每日环球展览":"iMuseum.png","豆包":"豆包.png","Kimi":"Kimi.png","DeepSeek":"DeepSeek.png","文心一言":"文心一言.png","通义千问":"通义千问.png","美图秀秀":"美图秀秀.png","原神":"原神.png","光·遇":"光·遇.png","王者荣耀":"王者荣耀.png","无限暖暖":"无限暖暖.png","崩坏:星穹铁道":"崩坏：星穹铁道.png","和平精英":"和平精英.png","纪念碑谷2":"纪念碑谷2.png","即梦(AI绘画)":"即梦.png","秘塔写作猫":"秘塔写作猫.png","讯飞听见":"讯飞听见.png","随申办":"随申办.png","贝壳找房":"贝壳找房.png","中信银行APP 7.0":"中信银行 App.png","九号出行(Segway-Ninebot App 6.0)":"九号出行.png"};
-      const localIconBase = 'icons/APP_icons_512px/';
+      const localIconBase = './icons/APP_icons_512px/';
       const systemIconFiles = {"HarmonyOS/鸿蒙OS":"HarmonyOS.png","ColorOS/OPPO":"ColorOS.png","OriginOS/vivo":"OriginOS.png","HyperOS/澎湃OS（小米）":"HyperOS.png","MagicOS/荣耀":"MagicOS.png","FlymeOS/魅族":"FlymeOS.png","iOS/苹果":"iOS.png"};
-      const systemIconBase = 'icons/系统/';
+      const systemIconBase = './icons/系统/';
       const localAppIcons = Object.fromEntries(Object.entries(localIconFiles).map(([name, file]) => [name, localIconBase + encodeURIComponent(file)]));
       const systemIcons = Object.fromEntries(Object.entries(systemIconFiles).map(([name, file]) => [name, systemIconBase + encodeURIComponent(file)]));
       apps.forEach((app) => { app.icon = appStoreIcons[app.name] || localAppIcons[app.name] || systemIcons[app.name] || ''; });
@@ -290,22 +290,20 @@
       const makeCard = (app) => {
         const card = document.createElement('article');
         card.className = 'app-card';
-        const screen = document.createElement('button');
-        screen.type = 'button';
-        screen.className = 'app-screen';
-        screen.setAttribute('aria-label', '查看 ' + app.name + ' 的截图大图');
+        let screen = null;
         if (app.image) {
+          screen = document.createElement('button');
+          screen.type = 'button';
+          screen.className = 'app-screen has-image';
+          screen.setAttribute('aria-label', '查看 ' + app.name + ' 的截图大图');
           const thumbnail = document.createElement('img');
           thumbnail.src = app.image;
           thumbnail.alt = app.name + ' ' + (app.imageSource || '参考') + '截图';
           thumbnail.loading = 'lazy';
           thumbnail.decoding = 'async';
           screen.append(thumbnail);
-          screen.classList.add('has-image');
         }
-        const screenLabel = document.createElement('span');
-        screenLabel.textContent = app.image ? (app.imageSource === 'UINotes' ? '' : 'App Store 官方图') : '截图待补';
-        if (screenLabel.textContent) screen.append(screenLabel);
+        else card.classList.add('no-image');
         let icon = null;
         if (app.icon) {
           icon = document.createElement('img');
@@ -355,16 +353,17 @@
           detailsButton.setAttribute('aria-expanded', String(open));
         });
         details.append(detailsButton, meta);
-        screen.addEventListener('click', () => {
-          const source = app.image || '';
-          title.textContent = source ? app.name + ' · 截图大图' : app.name + ' · 截图待补充';
-          caption.textContent = source ? app.name + '｜' + (app.imageSource || '参考截图') + '｜点击遮罩或按 Esc 关闭' : '请补入真实体验截图；点击遮罩或按 Esc 关闭';
-          image.src = source || 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
+        screen?.addEventListener('click', () => {
+          const source = app.image;
+          title.textContent = app.name + ' · 截图大图';
+          caption.textContent = app.name + '｜' + (app.imageSource || '参考截图') + '｜点击遮罩或按 Esc 关闭';
+          image.src = source;
           image.alt = app.name + ' 截图';
-          dialog.classList.toggle('has-image', Boolean(source));
+          dialog.classList.add('has-image');
           dialog.showModal();
         });
-        card.append(details, screen);
+        card.append(details);
+        if (screen) card.append(screen);
         if (icon) card.append(icon);
         card.append(copy);
         return card;
@@ -456,6 +455,12 @@
   <script>
     // 老板汇报版：将专业表述改为可直接听懂的日常语言。
     (() => {
+      const navigation = performance.getEntriesByType?.('navigation')[0];
+      const isReload = navigation?.type === 'reload' || performance.navigation?.type === 1;
+      if (isReload) {
+        if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+        window.addEventListener('pageshow', () => window.scrollTo(0, 0), { once: true });
+      }
       const one = (selector) => document.querySelector(selector);
       const all = (selector) => [...document.querySelectorAll(selector)];
       const text = (selector, value) => { const el = one(selector); if (el) el.textContent = value; };
@@ -484,17 +489,17 @@
       html('.hero p', '把可信的变化、可执行的下一步和适度的陪伴感<br>压缩进一个可在 3 秒内读懂的日常界面');
       all('.hero .chip').forEach((el, i) => { el.textContent = ['100 个参考样本', '可信的变化', '可执行的下一步', '适度的陪伴感'][i]; });
 
-      sectionHead('#scope', '我们看了什么', '先把能参考的软件看全，<br>再挑关键环节亲自操作。', '这 100 个 App 不是“谁最好”的排名，而是一份参考清单：它们可以下载、可以上手，也和机构日常工作有关。用户评分只能作参考，真正好不好用，要亲自点一遍才知道。');
+      sectionHead('#scope', '我们看了什么', '大范围摸排参考产品<br>聚焦典型案例深度体验', '共摸排 100 款软件，67 个 App 可查到中国区 App Store 公开评分；其余 33 个是企业工具或系统类产品，需要再到官网或安卓商店确认；从中筛选 12 个重点案例深度实操。评分只用来了解用户反应，不代表设计一定好。');
       one('#scope .statement')?.remove();
       all('#scope .research-route .route-step').forEach((step, i) => {
         const content = [
-          ['01 / 先看别人怎么做', '从 100 个软件里，找出值得学的做法。', '不只看医美，也看员工办事、客户下单和服务跟进。'],
-          ['02 / 亲自试一遍', '用 12 个重点案例，看看好用在哪里。', '重点看：从哪里进、要点几次、系统有没有说清楚。'],
-          ['03 / 再带回自己产品', '用截图和操作视频，留下能复看的依据。', '看完真实过程，再决定我们优先改哪里。']
+          ['01 / 大范围摸排', '横向浏览 100 款软件，筛选值得研究的对象', ''],
+          ['02 / 重点深度实测', '聚焦 12 个典型案例完整上手，验证好坏', ''],
+          ['03 / 落地回归产品', '留存截图录屏证据，指导我方优化优先级', '']
         ][i];
-        if (!content) return; childText(step, '.route-no', content[0]); childHTML(step, 'b', content[1]); childText(step, 'p', content[2]);
+        if (!content) return; childText(step, '.route-no', content[0]); childHTML(step, 'b', content[1]); const detail = step.querySelector('p'); if (content[2]) childText(step, 'p', content[2]); else detail?.remove();
       });
-      text('#scope .data-note', '说明：67 个 App 能查到中国区 App Store 的公开评分；其余 33 个是企业工具或系统类产品，需要再到官网或安卓商店确认。评分只用来了解用户反应，不代表设计一定好。');
+      text('#scope .data-note', '说明：共摸排 100 款软件，67 个 App 可查到中国区 App Store 公开评分；其余 33 个是企业工具或系统类产品，需要再到官网或安卓商店确认；从中筛选 12 个重点案例深度实操。评分只用来了解用户反应，不代表设计一定好。');
       all('#scope .category div').forEach((card, i) => {
         const content = [
           ['员工怎样更快开始做事', '协作、客户管理、经营工具'], ['客户怎样更容易下决定', '内容、到店服务、零售与预约'], ['等待时怎样不着急', '出行、地图、支付与进度提醒'], ['服务结束后怎样继续联系', '健康、学习、会员与长期服务'], ['复杂功能怎样不难上手', '创作工具、智能设备与生活服务']
@@ -577,12 +582,12 @@
       }
 
       const caseBriefs = [
-        ['交互流程优化逻辑｜标杆案例：高德地图', '出行导航｜单 App 录屏演示', '三步开始导航。', '三步闭环 / 高频收纳 / 统一交互 / 热区优化', '搜目的地、选路线、开始导航，没有多余中转页。', '高频入口清楚，确认操作放在更容易触达的位置。', '把高频任务压到最短路径。'],
-        ['视觉界面优化逻辑｜标杆案例：微信', '国民级 App｜单 App 录屏演示', '每个页面都知道什么最重要。', '设计语言归一 / 信息层级优先 / 留白降噪 / 色彩语义', '圆角、字体、图标和间距保持一致，页面切换无割裂感。', '消息和核心动作优先出现，辅助信息自然后退。', '先统一规则，再突出最重要的信息。'],
-        ['轻量化体验优化逻辑｜标杆案例：番茄免费小说', '免费阅读｜单 App 录屏演示', '商业化不打断阅读。', '营销后置克制 / 冗余功能删减 / 轻量动画加载', '广告、福利和推广不抢阅读与找书的核心路径。', '首页和阅读页只保留高频动作，弱网下也保持流畅。', '先守住核心体验，再安排商业内容。'],
-        ['隐私与细节优化逻辑｜标杆案例：夸克浏览器', '工具浏览器｜单 App 录屏演示', '权限只在需要时出现。', '权限最小化 / 用户可控化 / 细节提示友好', '扫码、保存、定位等功能触发时才申请对应权限。', '复制、保存、加载成功或失败都有短提示，结果可感知。', '把控制权和结果反馈交还给用户。'],
-        ['内容信息流 & 用户分层体验逻辑｜标杆案例：小红书', '生活内容社区｜单 App 录屏演示', '内容少干扰，推荐更对味。', '沉浸信息流 / 内容降噪 / 用户分层 / 新手适配 / 营销克制', '推荐、关注、同城等内容分区清楚，浏览不被繁杂元素打断。', '依据浏览与互动持续调整推荐，新用户也能快速进入内容。', '减少干扰，让内容和用户需求更快相遇。'],
-        ['电商流程轻量化 & 容错体验逻辑｜标杆案例：京东', '综合电商｜单 App 录屏演示', '购买快，出错也能回得来。', '购物路径极简 / 信息层级清晰 / 高危操作容错 / 售后闭环', '搜索、选规格、加购、结算连成一条清晰路径。', '取消、退款等高风险操作可确认、可追溯，也有明确指引。', '既缩短购买路径，也降低用户试错成本。']
+        ['案例类型：交互流程优化', '出行导航｜单 App 录屏演示', '三步开始导航。', '三步闭环 / 高频收纳 / 统一交互 / 热区优化', '搜目的地、选路线、开始导航，没有多余中转页。', '高频入口清楚，确认操作放在更容易触达的位置。', '把高频任务压到最短路径。'],
+        ['案例类型：视觉界面优化', '国民级 App｜单 App 录屏演示', '每个页面都知道什么最重要。', '设计语言归一 / 信息层级优先 / 留白降噪 / 色彩语义', '圆角、字体、图标和间距保持一致，页面切换无割裂感。', '消息和核心动作优先出现，辅助信息自然后退。', '先统一规则，再突出最重要的信息。'],
+        ['案例类型：轻量化体验优化', '免费阅读｜单 App 录屏演示', '商业化不打断阅读。', '营销后置克制 / 冗余功能删减 / 轻量动画加载', '广告、福利和推广不抢阅读与找书的核心路径。', '首页和阅读页只保留高频动作，弱网下也保持流畅。', '先守住核心体验，再安排商业内容。'],
+        ['案例类型：隐私与细节优化', '工具浏览器｜单 App 录屏演示', '权限只在需要时出现。', '权限最小化 / 用户可控化 / 细节提示友好', '扫码、保存、定位等功能触发时才申请对应权限。', '复制、保存、加载成功或失败都有短提示，结果可感知。', '把控制权和结果反馈交还给用户。'],
+        ['案例类型：内容信息流与用户分层', '生活内容社区｜单 App 录屏演示', '内容少干扰，推荐更对味。', '沉浸信息流 / 内容降噪 / 用户分层 / 新手适配 / 营销克制', '推荐、关注、同城等内容分区清楚，浏览不被繁杂元素打断。', '依据浏览与互动持续调整推荐，新用户也能快速进入内容。', '减少干扰，让内容和用户需求更快相遇。'],
+        ['案例类型：电商流程与容错体验', '综合电商｜单 App 录屏演示', '购买快，出错也能回得来。', '购物路径极简 / 信息层级清晰 / 高危操作容错 / 售后闭环', '搜索、选规格、加购、结算连成一条清晰路径。', '取消、退款等高风险操作可确认、可追溯，也有明确指引。', '既缩短购买路径，也降低用户试错成本。']
       ];
       all('#cases .case.video-case').forEach((card, i) => {
         const [source, tag, title, logic, factA, factB, takeaway] = caseBriefs[i];
@@ -598,9 +603,16 @@
         icon.className = 'case-app-icon';
         icon.src = 'assets/case-icons/' + encodeURIComponent(caseIconFiles[i]);
         icon.alt = caseIconNames[i] + '图标';
+        icon.loading = 'lazy';
+        icon.decoding = 'async';
         const text = document.createElement('span');
         text.textContent = label;
-        source.replaceChildren(icon, text);
+        const badge = document.createElement('span');
+        badge.className = 'case-app-badge';
+        const name = document.createElement('small');
+        name.textContent = caseIconNames[i];
+        badge.append(icon, name);
+        source.replaceChildren(badge, text);
       });
       all('#cases .case-video source').forEach((source) => {
         source.src = source.getAttribute('src').replace(/\.mov$/, '.mp4');
@@ -620,22 +632,22 @@
         }
       });
       const additionalCaseStyle = document.createElement('style');
-      additionalCaseStyle.textContent = `.case-app-mark{display:grid!important;place-items:center;width:38px;height:38px;flex:none;border-radius:10px;background:#21394c;color:#e1f4fe;font:800 15px/1 system-ui;box-shadow:0 0 0 1px rgba(214,238,250,.2)}.case-app-mark.mark-camera{background:linear-gradient(135deg,#ff8a9b,#7a4df4)}.case-app-mark.mark-drama{background:linear-gradient(135deg,#ff6f3e,#e63357)}.case-app-mark.mark-douyin{background:#111;color:#fff;text-shadow:2px 0 #27e7ec,-2px 0 #f24a72}`;
+      additionalCaseStyle.textContent = `.case-app-badge{position:absolute;top:0;right:0;display:grid;justify-items:center;gap:6px;width:72px;color:#b8d2df;font:650 11px/1.2 system-ui;text-align:center}.case-app-badge .case-app-icon{position:static!important;width:56px!important;height:56px!important;border-radius:14px!important;box-shadow:0 0 0 1px rgba(214,238,250,.28),0 8px 18px rgba(0,0,0,.16)!important}.case-app-badge small{max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:650 11px/1.2 system-ui}@media(max-width:760px){.case-app-badge{width:64px}.case-app-badge .case-app-icon{width:50px!important;height:50px!important;border-radius:13px!important}.case-app-badge small{font-size:10px}}`;
       document.head.append(additionalCaseStyle);
       const additionalCases = [
-        {name:'得到', folder:'得到', icon:'得到.png', source:'知识工具极简流程 &amp; 精准适配逻辑｜标杆案例：得到', tag:'知识学习｜单 App 录屏演示', title:'找课、开听，<br>把学习接着做下去。', logic:['三步学习','功能收纳','信息降噪','场景适配'], action:'找课程、试听订阅、查看学习记录，核心动作连成一条短路径。', result:'课程、时长与进度优先呈现，通勤、休息等碎片场景也能顺手继续。', takeaway:'把学习服务做成随时可以继续的一件事。'},
-        {name:'美颜相机', folder:'美颜相机', icon:'美颜相机.jpg', source:'影像视觉美学 &amp; 精细化交互逻辑｜标杆案例：美颜相机', tag:'影像创作｜单 App 录屏演示', title:'每次调整，<br>画面马上告诉你结果。', logic:['视觉统一','功能分层','实时反馈','可逆容错'], action:'拍摄、美颜、滤镜等高频功能前置，复杂工具按层收纳。', result:'滑动调参即时预览，参数可重置、成片可对比，减少创作试错。', takeaway:'让每一次调整都可见、可退、可重来。'},
-        {name:'讯飞听见', folder:'讯飞听见', icon:'讯飞听见.png', source:'音频转写高效 &amp; 智能容错逻辑｜标杆案例：讯飞听见', tag:'语音办公｜单 App 录屏演示', title:'录下来，<br>整理成可用的文字。', logic:['短路径闭环','智能纠错','异常兜底','操作可逆'], action:'录音、转写、保存直达结果，口语、断句与同音错误自动规整。', result:'中断和网络异常会说明原因并缓存内容，文本可编辑、可回退、可检索。', takeaway:'智能能力要减少后续整理，而不是增加新的操作。'},
-        {name:'红果免费短剧', video:'红果免费短剧_web.mp4', folder:'红果免费短剧', icon:'红果免费短剧.jpg', source:'短剧轻量化 &amp; 沉浸式体验逻辑｜标杆案例：红果免费短剧', tag:'短剧内容｜单 App 录屏演示', title:'连续看下去，<br>不被多余动作打断。', logic:['轻量运行','营销后置','播放直达','界面降噪'], action:'上下滑动切剧、点击播放暂停，核心观看动作无需学习。', result:'广告可快速关闭，弱网与缓存场景也尽量维持连续播放。', takeaway:'沉浸体验先于曝光和转化。'},
-        {name:'Keep', video:'Keep_web.mp4', folder:'Keep', icon:'Keep.png', source:'运动健康场景 &amp; 全人群适配逻辑｜标杆案例：Keep', tag:'运动健康｜单 App 录屏演示', title:'不同的人，<br>都能找到合适的开始。', logic:['人群分层','全场景适配','记录可逆','数据前置'], action:'新手到进阶用户各有课程与计划，居家、跑步、力量等场景被分别照顾。', result:'时长、卡路里、心率等关键数据在运动时优先可见，记录可恢复。', takeaway:'先适配真实运动场景，再谈训练深度。'},
-        {name:'抖音', video:'抖音_web.mp4', folder:'抖音', icon:'抖音.jpg', source:'短视频沉浸式 &amp; 精细化运营体验逻辑｜标杆案例：抖音', tag:'短视频内容｜单 App 录屏演示', title:'内容更沉浸，<br>推荐也更贴近兴趣。', logic:['沉浸信息流','用户分层','轻量交互','场景适配'], action:'全屏信息流与上下滑动符合直觉，点赞、评论、收藏等动作随手可达。', result:'推荐随互动持续调整，弱网、深色、青少年等模式覆盖不同人群与情境。', takeaway:'把内容、推荐与使用场景持续对齐。'}
+        {name:'得到', folder:'得到', icon:'得到.png', source:'案例类型：知识工具与场景适配', tag:'知识学习｜单 App 录屏演示', title:'找课、开听，<br>把学习接着做下去。', logic:['三步学习','功能收纳','信息降噪','场景适配'], action:'找课程、试听订阅、查看学习记录，核心动作连成一条短路径。', result:'课程、时长与进度优先呈现，通勤、休息等碎片场景也能顺手继续。', takeaway:'把学习服务做成随时可以继续的一件事。'},
+        {name:'美颜相机', folder:'美颜相机', icon:'美颜相机.jpg', source:'案例类型：影像美学与精细交互', tag:'影像创作｜单 App 录屏演示', title:'每次调整，<br>画面马上告诉你结果。', logic:['视觉统一','功能分层','实时反馈','可逆容错'], action:'拍摄、美颜、滤镜等高频功能前置，复杂工具按层收纳。', result:'滑动调参即时预览，参数可重置、成片可对比，减少创作试错。', takeaway:'让每一次调整都可见、可退、可重来。'},
+        {name:'讯飞听见', folder:'讯飞听见', icon:'讯飞听见.png', source:'案例类型：音频转写与智能容错', tag:'语音办公｜单 App 录屏演示', title:'录下来，<br>整理成可用的文字。', logic:['短路径闭环','智能纠错','异常兜底','操作可逆'], action:'录音、转写、保存直达结果，口语、断句与同音错误自动规整。', result:'中断和网络异常会说明原因并缓存内容，文本可编辑、可回退、可检索。', takeaway:'智能能力要减少后续整理，而不是增加新的操作。'},
+        {name:'红果免费短剧', video:'红果免费短剧_web.mp4', folder:'红果免费短剧', icon:'红果免费短剧.jpg', source:'案例类型：短剧轻量化与沉浸体验', tag:'短剧内容｜单 App 录屏演示', title:'连续看下去，<br>不被多余动作打断。', logic:['轻量运行','营销后置','播放直达','界面降噪'], action:'上下滑动切剧、点击播放暂停，核心观看动作无需学习。', result:'广告可快速关闭，弱网与缓存场景也尽量维持连续播放。', takeaway:'沉浸体验先于曝光和转化。'},
+        {name:'Keep', video:'Keep_web.mp4', folder:'Keep', icon:'Keep.png', source:'案例类型：运动健康与全人群适配', tag:'运动健康｜单 App 录屏演示', title:'不同的人，<br>都能找到合适的开始。', logic:['人群分层','全场景适配','记录可逆','数据前置'], action:'新手到进阶用户各有课程与计划，居家、跑步、力量等场景被分别照顾。', result:'时长、卡路里、心率等关键数据在运动时优先可见，记录可恢复。', takeaway:'先适配真实运动场景，再谈训练深度。'},
+        {name:'抖音', video:'抖音_web.mp4', folder:'抖音', icon:'抖音.jpg', source:'案例类型：短视频沉浸与精细化运营', tag:'短视频内容｜单 App 录屏演示', title:'内容更沉浸，<br>推荐也更贴近兴趣。', logic:['沉浸信息流','用户分层','轻量交互','场景适配'], action:'全屏信息流与上下滑动符合直觉，点赞、评论、收藏等动作随手可达。', result:'推荐随互动持续调整，弱网、深色、青少年等模式覆盖不同人群与情境。', takeaway:'把内容、推荐与使用场景持续对齐。'}
       ];
       const caseGrid = one('#cases .case-grid');
       const videoTemplate = one('#cases .case.video-case');
       additionalCases.forEach((item) => {
         if (!caseGrid || !videoTemplate) return;
         const card = videoTemplate.cloneNode(true);
-        const icon = item.icon ? `<img class="case-app-icon" src="assets/case-icons/${encodeURIComponent(item.icon)}" alt="${item.name}图标">` : `<span class="case-app-mark ${item.markClass}" aria-label="${item.name}">${item.mark}</span>`;
+        const icon = `<span class="case-app-badge"><img class="case-app-icon" src="assets/case-icons/${encodeURIComponent(item.icon)}" alt="${item.name}图标"><small>${item.name}</small></span>`;
         card.querySelector('.case-copy').innerHTML = `<div class="case-source">${icon}<span>${item.source}</span></div><span class="tag">${item.tag}</span><h3>${item.title}</h3><div class="case-logic"><b>匹配核心逻辑</b><div class="case-logic-tags">${item.logic.map((entry) => `<span class="case-logic-tag">${entry}</span>`).join('')}</div></div><div class="case-insights"><p><b>关键动作</b><span>${item.action}</span></p><p><b>体验结果</b><span>${item.result}</span></p></div><div class="case-takeaway"><b>值得借鉴</b><span>${item.takeaway}</span></div>`;
         card.querySelector('.case-video').outerHTML = `<figure class="case-video"><div class="phone-frame"><video controls muted playsinline preload="metadata" aria-label="${item.name}录屏"><source src="assets/case-videos/${encodeURIComponent(item.video || item.name + '.mp4')}" type="video/mp4">当前浏览器无法播放该视频。</video></div><figcaption><b>${item.name} · 操作录屏</b><span>从入口到完成关键操作</span></figcaption></figure>`;
         caseGrid.append(card);
@@ -807,24 +819,6 @@
         while (walker.nextNode()) nodes.push(walker.currentNode);
         nodes.forEach((node) => { node.nodeValue = node.nodeValue.replace(/[。．.](?=\s*$)/, ''); });
       });
-      const shareCaseTypes = ['交互流程优化','视觉界面优化','轻量化体验优化','隐私与细节优化','内容信息流与用户分层','电商流程与容错体验','知识工具与场景适配','影像美学与精细交互','音频转写与智能容错','短剧轻量化与沉浸体验','运动健康与全人群适配','短视频沉浸与精细化运营'];
-      const shareCaseNames = ['高德地图','微信','番茄免费小说','夸克浏览器','小红书','京东','得到','美颜相机','讯飞听见','红果免费短剧','Keep','抖音'];
-      const shareBadgeStyle = document.createElement('style');
-      shareBadgeStyle.textContent = `.case-app-badge{position:absolute;top:0;right:0;display:grid;justify-items:center;gap:6px;width:72px;color:#b8d2df;font:650 11px/1.2 system-ui;text-align:center}.case-app-badge .case-app-icon{position:static!important;width:56px!important;height:56px!important;border-radius:14px!important;box-shadow:0 0 0 1px rgba(214,238,250,.28),0 8px 18px rgba(0,0,0,.16)!important}.case-app-badge small{max-width:72px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:650 11px/1.2 system-ui}@media(max-width:760px){.case-app-badge{width:64px}.case-app-badge .case-app-icon{width:50px!important;height:50px!important;border-radius:13px!important}.case-app-badge small{font-size:10px}}`;
-      document.head.append(shareBadgeStyle);
-      all('#cases .case.video-case .case-source').forEach((source, index) => {
-        const label = source.querySelector('span:last-child');
-        if (label) label.textContent = `案例类型：${shareCaseTypes[index]}`;
-        const icon = source.querySelector('.case-app-icon');
-        if (icon && !icon.parentElement.classList.contains('case-app-badge')) {
-          const badge = document.createElement('span');
-          badge.className = 'case-app-badge';
-          const name = document.createElement('small');
-          name.textContent = shareCaseNames[index];
-          icon.before(badge);
-          badge.append(icon, name);
-        }
-      });
       const logicStyle = document.createElement('style');
       logicStyle.textContent = `
         .logic-summary{max-width:1840px;margin:0 auto;padding:110px 5.8vw 88px;border-top:1px solid rgba(132,190,225,.2)}
@@ -865,11 +859,6 @@
       document.body.append(topButton);
       one('footer')?.remove();
     })();
-  </script>
-  <script>
-    // 分享版资料均随文件夹携带，覆盖原报告中的本机路径。
-    document.querySelector('.source-link')?.setAttribute('href', '资料/国内优秀交互APP_100个_判定口碑与来源.xlsx');
-    document.querySelector('.app-evaluation-toolbar a')?.setAttribute('href', '资料/国内交互设计优秀APP研究报告_TOP100.docx');
   </script>
 </body>
 </html>
